@@ -1,0 +1,37 @@
+{
+  "name": "bed-mgmt-api",
+  "version": "1.0.0",
+  "description": "Hospital Bed Management API with MongoDB and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node migrate.js",
+    "migrate:rollback": "node migrate.js rollback",
+    "migrate:status": "node migrate.js status",
+    "migrate:fresh": "node migrate.js fresh",
+    "migrate:make": "node migrate.js make",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hospital",
+    "bed-management",
+    "healthcare",
+    "api",
+    "mongodb",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
