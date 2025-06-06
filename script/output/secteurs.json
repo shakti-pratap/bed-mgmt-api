@@ -1,0 +1,42 @@
+[
+  {
+    "ID_SECTEUR": 1,
+    "LIB_SECTEUR": "CHIRURGIE",
+    "ABR_SECTEUR": "CHI"
+  },
+  {
+    "ID_SECTEUR": 2,
+    "LIB_SECTEUR": "FEMME-ENFANT",
+    "ABR_SECTEUR": "FEM"
+  },
+  {
+    "ID_SECTEUR": 3,
+    "LIB_SECTEUR": "GERIATRIE",
+    "ABR_SECTEUR": "GER"
+  },
+  {
+    "ID_SECTEUR": 4,
+    "LIB_SECTEUR": "LONGJUMEAU",
+    "ABR_SECTEUR": "LON"
+  },
+  {
+    "ID_SECTEUR": 5,
+    "LIB_SECTEUR": "MEDECINE",
+    "ABR_SECTEUR": "MED"
+  },
+  {
+    "ID_SECTEUR": 6,
+    "LIB_SECTEUR": "NEURO-CARDIO",
+    "ABR_SECTEUR": "NEU"
+  },
+  {
+    "ID_SECTEUR": 7,
+    "LIB_SECTEUR": "PSYCHIATRIE",
+    "ABR_SECTEUR": "PSY"
+  },
+  {
+    "ID_SECTEUR": 8,
+    "LIB_SECTEUR": "SOINS-INTENSIFS",
+    "ABR_SECTEUR": "SOI"
+  }
+]

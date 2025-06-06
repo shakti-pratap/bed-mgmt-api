@@ -1,0 +1,3754 @@
+[
+  {
+    "ID_LIT": "426-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.920Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "427-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.922Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "427-02",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "428-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "428-02",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "429-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "429-02",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "430-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "431-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "432-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "433-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "434-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "434-02",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "435-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "436-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "437-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "438-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "439-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "440-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "441-01",
+    "ID_SERVICE": "4601",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "418-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "419-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "420-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "421-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "422-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "423-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "424-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "425-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "450-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "450-02",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "451-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "452-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "453-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "454-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "455-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "456-01",
+    "ID_SERVICE": "4603",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "401-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "401-02",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "402-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "403-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "404-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "405-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "406-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "407-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "408-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "409-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "410-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "411-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "412-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "413-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "414-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "414-02",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "415-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "416-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "417-01",
+    "ID_SERVICE": "4610",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "457-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "458-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "459-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "460-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "461-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "462-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "462-02",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "463-01",
+    "ID_SERVICE": "4612",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "044-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "045-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "046-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "047-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "048-048",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "049-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "49A-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "49B-01",
+    "ID_SERVICE": "5535",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "201-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "202-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "203-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "204-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "205-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "206-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "207-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "208-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "209-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "210-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "210-02",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "211-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "212-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.923Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "212-02",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "213-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "214-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "215-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "216-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "217-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "218-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "219-01",
+    "ID_SERVICE": "5541",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "220-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "222-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "223-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "224-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "226-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "227-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "233-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "235-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "236-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "236-02",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "237-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "238-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "240-01",
+    "ID_SERVICE": "5553",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "228-01",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "229-01",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "230-01",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "231-01",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "232-01",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "232-02",
+    "ID_SERVICE": "5554",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "040-01",
+    "ID_SERVICE": "5555",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "041-01",
+    "ID_SERVICE": "5555",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "042-01",
+    "ID_SERVICE": "5555",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "043-01",
+    "ID_SERVICE": "5555",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "250-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "251-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "252-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "253-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "253-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "254-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "255-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "256-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "257-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "258-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "258-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "259-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "260-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "261-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "262-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "263-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "264-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "265-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "266-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "267-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "268-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "269-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "270-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "271-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "272-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "273-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "273-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "274-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "275-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "276-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "276-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "277-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "278-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "279-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "281-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "282-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "283-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "284-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "285-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "287-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "288-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "289-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "289-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "290-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "291-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "291-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "292-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "293-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "293-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "294-01",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "294-02",
+    "ID_SERVICE": "6511",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "464-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "465-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "466-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "467-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "468-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "469-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "470-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "471-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "472-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "473-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "474-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "475-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "476-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "476-02",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "477-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "477-02",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "478-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "479-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "479-02",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "480-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "481-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "482-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "482-02",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "483-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "484-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "485-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "486-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "487-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "488-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "489-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "490-01",
+    "ID_SERVICE": "6221",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0013-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0014-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0015-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0016-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0017-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0018-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0019-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "0020-01",
+    "ID_SERVICE": "7405",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "010-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "011-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "012-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "013-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "014-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "015-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "016-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "017-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "018-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "019-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "020-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "021-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "022-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "023-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "024-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "025-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "026-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "027-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "028-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "029-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "030-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "031-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "032-01",
+    "ID_SERVICE": "7730",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "263-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "265-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "266-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "267-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "268-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "269-02",
+    "ID_SERVICE": "8120",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "350-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "350-02",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "351-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "352-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "353-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "354-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "355-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "356-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "357-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "358-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "359-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "360-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "361-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "362-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "363-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "363-02",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "364-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "365-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "370-01",
+    "ID_SERVICE": "6109",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "366-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "367-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "368-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "369-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "371-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "372-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "373-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "374-01",
+    "ID_SERVICE": "6203",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "550-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "551-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "552-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "553-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "554-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "555-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "556-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "557-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "558-01",
+    "ID_SERVICE": "6206",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "501-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "501-02",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "502-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "503-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "504-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "505-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "506-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "507-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "508-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "509-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "510-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "511-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "512-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "513-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "514-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "514-02",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "516-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "518-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "520-01",
+    "ID_SERVICE": "6207",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "515-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "517-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "519-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "521-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "522-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "523-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "524-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "525-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "526-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "527-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "527-02",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "528-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "528-02",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "529-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "529-02",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "530-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "531-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "532-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "533-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "534-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "534-02",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "535-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "536-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "537-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "538-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "539-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "540-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "541-01",
+    "ID_SERVICE": "6208",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "559-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "560-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "561-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "562-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "563-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "564-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "565-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "566-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "567-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "568-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "570-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "571-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "572-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "573-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "574-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "575-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "576-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "577-01",
+    "ID_SERVICE": "6209",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "375-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "376-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "376-02",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "377-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "377-02",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "378-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "379-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "379-02",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "380-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "381-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "382-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "382-02",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "383-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "384-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "385-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "386-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "387-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "388-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "389-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "390-01",
+    "ID_SERVICE": "6211",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "326-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "326-02",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "327-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "328-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "328-02",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "329-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "329-02",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "330-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "331-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "332-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "333-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "334-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "334-02",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "335-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "336-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "337-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "338-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "339-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "340-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "341-01",
+    "ID_SERVICE": "5420",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "301-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "301-02",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "302-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "303-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "304-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "305-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "306-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "307-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "308-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "309-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "310-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "311-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "312-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "313-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "313-02",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "314-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "315-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "323-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "324-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "325-01",
+    "ID_SERVICE": "5431",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "316-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "317-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "318-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "319-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "320-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "321-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "322-01",
+    "ID_SERVICE": "5432",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O101-O101",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O102-O102",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O103-O103",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O104-O104",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.924Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O105-O105F",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O105-O105P",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O106-O106",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O107-O107",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O108-O108",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O109-O109",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O110-O110",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O111-O111F",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O111-O111P",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O112-O112",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O113-O113",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O114-O114",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O115-O115",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O116-0116",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O117-O117",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O118-O118",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O119-O119",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O120-O120",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O121-O121",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O122-O122",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.925Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O123-O123F",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O123-O123P",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O124-O124",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O125-O125F",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O125-O125P",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O126-O126I",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "O127-O127I",
+    "ID_SERVICE": "7000",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M301-M301",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M302-M302",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M303-M303",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M304-M304",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M305-M305F",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M305-M305P",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M306-M306",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M307-M307",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M308-M308",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M309-M309",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M310-M310",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M311-M311F",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M311-M311P",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M312-M312",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M313-M313",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M314-M314",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M315-M315",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M316-M316",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M317-M317",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M318-M318",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M319-M319",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M320-M320",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M321-M321",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M322-M322",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M323-M323F",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M323-M323P",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M324-M324",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M325-M325F",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M325-M325P",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M326-M326I",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "M327-M327I",
+    "ID_SERVICE": "7100",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P201-P201",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P202-P202",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P203-P203",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P204-P204",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P205-P205F",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P205-P205P",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P206-P206",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P207-P207",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P208-P208",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P209-P209",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P210-P210",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P211-P211F",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P211-P211P",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P212-P212",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P213-P213",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P214-P214",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P215-P215",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P216-P216",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P217-P217",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P218-P218",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P219-P219",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P220-P220",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P221-P221",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P222-P222",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P223-P223F",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P223-P223P",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P224-P224",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P225-P225F",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P225-P225P",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P226-P226I",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "P227-P227I",
+    "ID_SERVICE": "7200",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "A-LITAS",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "B-LITB",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "C-LITC",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "D-LITD",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "E-LITE",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "F-LITF",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "G-LITG",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "H-LITH",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "J-LITJ",
+    "ID_SERVICE": "7300",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "050-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "051-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "052-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "053-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "054-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "055-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "056-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "057-01",
+    "ID_SERVICE": "5426",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "060-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "061-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "070-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "071-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "080-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "081-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "082-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "083-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "084-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "085-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "086-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "087-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "088-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "089-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "090-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "091-01",
+    "ID_SERVICE": "5441",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "062-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "063-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "064-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "065-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "066-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "067-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "068-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  },
+  {
+    "ID_LIT": "069-01",
+    "ID_SERVICE": "5442",
+    "ID_STATUT": 1,
+    "MAJ_STATUT": "2025-06-06T04:05:20.926Z",
+    "ACTIF": true
+  }
+]

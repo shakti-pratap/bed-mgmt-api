@@ -1,0 +1,250 @@
+[
+  {
+    "ID_SERVICE": "4601",
+    "LIB_SERVICE": "S HC CHIR VISC URO",
+    "ID_SECTEUR": 1,
+    "CAPA_ARCHI": 20,
+    "CAPA_REELLE": 20,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "4603",
+    "LIB_SERVICE": "S HC CHIR SPECIALITE",
+    "ID_SECTEUR": 1,
+    "CAPA_ARCHI": 16,
+    "CAPA_REELLE": 16,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "4610",
+    "LIB_SERVICE": "S HC CHIRURGIE ORTHO",
+    "ID_SECTEUR": 1,
+    "CAPA_ARCHI": 19,
+    "CAPA_REELLE": 19,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "4612",
+    "LIB_SERVICE": "S HC UPOG",
+    "ID_SECTEUR": 1,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5420",
+    "LIB_SERVICE": "S HC CARDIOLOGIE",
+    "ID_SECTEUR": 6,
+    "CAPA_ARCHI": 20,
+    "CAPA_REELLE": 20,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5426",
+    "LIB_SERVICE": "S HC USIC",
+    "ID_SECTEUR": 8,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5431",
+    "LIB_SERVICE": "S HC NEUROLOGIE",
+    "ID_SECTEUR": 6,
+    "CAPA_ARCHI": 20,
+    "CAPA_REELLE": 20,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5432",
+    "LIB_SERVICE": "S HC SI NEURO 1",
+    "ID_SECTEUR": 6,
+    "CAPA_ARCHI": 7,
+    "CAPA_REELLE": 7,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5441",
+    "LIB_SERVICE": "S HC REANIMATION",
+    "ID_SECTEUR": 8,
+    "CAPA_ARCHI": 16,
+    "CAPA_REELLE": 16,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5442",
+    "LIB_SERVICE": "S HC USIP",
+    "ID_SECTEUR": 8,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5535",
+    "LIB_SERVICE": "S UHCD PEDIATRIQUE",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5541",
+    "LIB_SERVICE": "S HC PEDIATRIE",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 21,
+    "CAPA_REELLE": 21,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5553",
+    "LIB_SERVICE": "S HC NEONAT TYPE 2A",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 13,
+    "CAPA_REELLE": 13,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5554",
+    "LIB_SERVICE": "S HC SI NEONAT 2B",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 6,
+    "CAPA_REELLE": 6,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "5555",
+    "LIB_SERVICE": "S HC SOINS CONTINUS ",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 4,
+    "CAPA_REELLE": 4,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6109",
+    "LIB_SERVICE": "S HC ONCOLOGIE",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 19,
+    "CAPA_REELLE": 19,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6203",
+    "LIB_SERVICE": "S HC GASTRO ENTEROLO",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6206",
+    "LIB_SERVICE": "S HC UMIT",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 9,
+    "CAPA_REELLE": 9,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6207",
+    "LIB_SERVICE": "S HC MEDECINE POLYV1",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 19,
+    "CAPA_REELLE": 19,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6208",
+    "LIB_SERVICE": "S HC MEDECINE POLYV2",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 28,
+    "CAPA_REELLE": 28,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6209",
+    "LIB_SERVICE": "S HC MEDECINE POLYV3",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 18,
+    "CAPA_REELLE": 18,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6211",
+    "LIB_SERVICE": "S HC PNEUMOLOGIE",
+    "ID_SECTEUR": 5,
+    "CAPA_ARCHI": 20,
+    "CAPA_REELLE": 20,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6221",
+    "LIB_SERVICE": "S HC CSG",
+    "ID_SECTEUR": 3,
+    "CAPA_ARCHI": 31,
+    "CAPA_REELLE": 31,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "6511",
+    "LIB_SERVICE": "S SUITES DE COUCHES ",
+    "ID_SECTEUR": 2,
+    "CAPA_ARCHI": 51,
+    "CAPA_REELLE": 51,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7000",
+    "LIB_SERVICE": "O PSY.ORSAY H.PLEIN",
+    "ID_SECTEUR": 7,
+    "CAPA_ARCHI": 31,
+    "CAPA_REELLE": 31,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7100",
+    "LIB_SERVICE": "O PSY.MASSY H.PLEIN",
+    "ID_SECTEUR": 7,
+    "CAPA_ARCHI": 31,
+    "CAPA_REELLE": 31,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7200",
+    "LIB_SERVICE": "O PSY.PALAIS.H.PLEIN",
+    "ID_SECTEUR": 7,
+    "CAPA_ARCHI": 31,
+    "CAPA_REELLE": 31,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7300",
+    "LIB_SERVICE": "O PSY.HOSP COMPL ADO",
+    "ID_SECTEUR": 7,
+    "CAPA_ARCHI": 9,
+    "CAPA_REELLE": 9,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7405",
+    "LIB_SERVICE": "L UHTCD PSY",
+    "ID_SECTEUR": 4,
+    "CAPA_ARCHI": 8,
+    "CAPA_REELLE": 8,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "7730",
+    "LIB_SERVICE": "S UHCD ADULTES",
+    "ID_SECTEUR": 4,
+    "CAPA_ARCHI": 23,
+    "CAPA_REELLE": 23,
+    "ROR": true
+  },
+  {
+    "ID_SERVICE": "8120",
+    "LIB_SERVICE": "L HC MED POLYVALENTE",
+    "ID_SECTEUR": 4,
+    "CAPA_ARCHI": 6,
+    "CAPA_REELLE": 6,
+    "ROR": true
+  }
+]

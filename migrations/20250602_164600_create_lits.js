@@ -4,6 +4,8 @@
  */
 
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Run the migration
@@ -22,27 +24,25 @@ async function up() {
   await lits.createIndex({ ID_SERVICE: 1, ACTIF: 1 }); // Compound index
   await lits.createIndex({ ID_SERVICE: 1, ID_STATUT: 1 }); // Compound index
   
-  // Get services to create beds for
-  const services = await mongoose.connection.db.collection('services').find({}).toArray();
+  // Read beds data from JSON file
+  const jsonPath = path.join(__dirname, '..', 'script', 'output', 'beds.json');
   
-  const initialLits = [];
+  if (!fs.existsSync(jsonPath)) {
+    throw new Error(`Beds JSON file not found at ${jsonPath}. Please run the Excel extraction script first.`);
+  }
   
-  // Create beds for each service
-  services.forEach(service => {
-    const bedsCount = Math.min(5, service.CAPA_REELLE); // Limit to 5 beds per service for demo
-    
-    for (let i = 1; i <= bedsCount; i++) {
-      initialLits.push({
-        ID_LIT: `${service.ID_SERVICE}-${i.toString().padStart(2, '0')}`,
-        ID_SERVICE: service.ID_SERVICE,
-        ID_STATUT: Math.floor(Math.random() * 3) + 1, // Random status 1-3 (Libre, Occupé, À nettoyer)
-        MAJ_STATUT: new Date(),
-        ACTIF: true,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      });
-    }
-  });
+  const bedsData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  
+  // Map the data and add timestamps
+  const initialLits = bedsData.map(bed => ({
+    ID_LIT: bed.ID_LIT,
+    ID_SERVICE: bed.ID_SERVICE,
+    ID_STATUT: bed.ID_STATUT,
+    MAJ_STATUT: new Date(bed.MAJ_STATUT),
+    ACTIF: bed.ACTIF,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }));
 
   if (initialLits.length > 0) {
     await lits.insertMany(initialLits);

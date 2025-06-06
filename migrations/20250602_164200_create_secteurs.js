@@ -4,6 +4,8 @@
  */
 
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Run the migration
@@ -17,44 +19,23 @@ async function up() {
   await secteurs.createIndex({ ID_SECTEUR: 1 }, { unique: true });
   await secteurs.createIndex({ ABR_SECTEUR: 1 }, { unique: true });
   
-  // Insert initial data
-  const initialSecteurs = [
-    { 
-      ID_SECTEUR: 1, 
-      LIB_SECTEUR: 'Médecine', 
-      ABR_SECTEUR: 'MED',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SECTEUR: 2, 
-      LIB_SECTEUR: 'Chirurgie', 
-      ABR_SECTEUR: 'CHIR',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SECTEUR: 3, 
-      LIB_SECTEUR: 'Urgences', 
-      ABR_SECTEUR: 'URG',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SECTEUR: 4, 
-      LIB_SECTEUR: 'Pédiatrie', 
-      ABR_SECTEUR: 'PED',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SECTEUR: 5, 
-      LIB_SECTEUR: 'Maternité', 
-      ABR_SECTEUR: 'MAT',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-  ];
+  // Read secteurs data from JSON file
+  const jsonPath = path.join(__dirname, '..', 'script', 'output', 'secteurs.json');
+  
+  if (!fs.existsSync(jsonPath)) {
+    throw new Error(`Secteurs JSON file not found at ${jsonPath}. Please run the Excel extraction script first.`);
+  }
+  
+  const secteursData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  
+  // Map the data and add timestamps
+  const initialSecteurs = secteursData.map(secteur => ({
+    ID_SECTEUR: secteur.ID_SECTEUR,
+    LIB_SECTEUR: secteur.LIB_SECTEUR,
+    ABR_SECTEUR: secteur.ABR_SECTEUR,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }));
 
   await secteurs.insertMany(initialSecteurs);
   

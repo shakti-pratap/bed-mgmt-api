@@ -3,8 +3,10 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
+const dotenv = require('dotenv');
 const Migrator = require('./lib/migrator');
 
+dotenv.config();
 const migrator = new Migrator();
 
 // Migration model to track applied migrations
@@ -18,7 +20,7 @@ const Migration = mongoose.model('Migration', migrationSchema);
 // Database connection
 async function connectDB() {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/bed_management';
+    const mongoURI = process.env.MONGODB_URI;
     
     await mongoose.connect(mongoURI);
     console.log('Connected to MongoDB');

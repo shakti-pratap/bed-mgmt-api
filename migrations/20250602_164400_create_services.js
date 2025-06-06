@@ -4,6 +4,8 @@
  */
 
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 /**
  * Run the migration
@@ -18,79 +20,26 @@ async function up() {
   await services.createIndex({ ID_SECTEUR: 1 });
   await services.createIndex({ ROR: 1 });
   
-  // Insert initial services
-  const initialServices = [
-    { 
-      ID_SERVICE: 'MED-01', 
-      LIB_SERVICE: 'Médecine Interne', 
-      ID_SECTEUR: 1, 
-      CAPA_ARCHI: 30, 
-      CAPA_REELLE: 28, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'MED-02', 
-      LIB_SERVICE: 'Cardiologie', 
-      ID_SECTEUR: 1, 
-      CAPA_ARCHI: 25, 
-      CAPA_REELLE: 24, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'CHIR-01', 
-      LIB_SERVICE: 'Chirurgie Générale', 
-      ID_SECTEUR: 2, 
-      CAPA_ARCHI: 20, 
-      CAPA_REELLE: 18, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'CHIR-02', 
-      LIB_SERVICE: 'Chirurgie Orthopédique', 
-      ID_SECTEUR: 2, 
-      CAPA_ARCHI: 15, 
-      CAPA_REELLE: 15, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'URG-01', 
-      LIB_SERVICE: 'Urgences Adultes', 
-      ID_SECTEUR: 3, 
-      CAPA_ARCHI: 12, 
-      CAPA_REELLE: 10, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'PED-01', 
-      LIB_SERVICE: 'Pédiatrie Générale', 
-      ID_SECTEUR: 4, 
-      CAPA_ARCHI: 20, 
-      CAPA_REELLE: 18, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    { 
-      ID_SERVICE: 'MAT-01', 
-      LIB_SERVICE: 'Maternité', 
-      ID_SECTEUR: 5, 
-      CAPA_ARCHI: 18, 
-      CAPA_REELLE: 16, 
-      ROR: true,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-  ];
+  // Read services data from JSON file
+  const jsonPath = path.join(__dirname, '..', 'script', 'output', 'services.json');
+  
+  if (!fs.existsSync(jsonPath)) {
+    throw new Error(`Services JSON file not found at ${jsonPath}. Please run the Excel extraction script first.`);
+  }
+  
+  const servicesData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  
+  // Map the data and add timestamps
+  const initialServices = servicesData.map(service => ({
+    ID_SERVICE: service.ID_SERVICE,
+    LIB_SERVICE: service.LIB_SERVICE,
+    ID_SECTEUR: service.ID_SECTEUR,
+    CAPA_ARCHI: service.CAPA_ARCHI,
+    CAPA_REELLE: service.CAPA_REELLE,
+    ROR: service.ROR,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }));
 
   await services.insertMany(initialServices);
   

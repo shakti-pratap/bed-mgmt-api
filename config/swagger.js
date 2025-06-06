@@ -1,4 +1,6 @@
 const swaggerJsdoc = require('swagger-jsdoc');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const options = {
   definition: {
@@ -91,8 +93,8 @@ This API provides endpoints for managing hospital beds, services, sectors, and t
     },
     servers: [
       {
-        url: 'http://localhost:3000/api',
-        description: 'Development server'
+        url: process.env.LOCAL_SERVER_URL,
+        description: 'Local server'
       }
     ],
     components: {
