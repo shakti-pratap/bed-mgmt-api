@@ -108,7 +108,7 @@ router.get('/service/:serviceId', async (req, res) => {
     }
     
     const lits = await Lit.aggregate([
-      { $match: { ID_SERVICE: req.params.serviceId, ACTIF: true } },
+      { $match: { ID_SERVICE: req.params.serviceId } },
       { $sort: { ID_LIT: 1 } },
       {
         $lookup: {
