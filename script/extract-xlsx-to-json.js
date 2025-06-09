@@ -13,12 +13,6 @@ try {
   console.log(`📋 Sheet name: ${sheetName}`);
   console.log(`📝 Total rows: ${data.length}`);
   
-  // Debug: Show actual column names and first row
-  if (data.length > 0) {
-    console.log('\n🔍 Debug - Actual column names:', Object.keys(data[0]));
-    console.log('🔍 Debug - First row data:', data[0]);
-  }
-  
   // Helper maps to avoid duplicates and count beds
   const secteursMap = {};
   const servicesMap = {};
@@ -33,13 +27,6 @@ try {
       const serviceId = row['ID_SERVICE'];
       const serviceName = row['NAME_SERVICE'];
       const bedId = row['BED'];
-      
-      // Debug: Show what we're extracting for first few rows
-      if (index < 3) {
-        console.log(`\n🔍 Row ${index + 1} extracted data:`, {
-          secteurId, secteurName, serviceId, serviceName, bedId
-        });
-      }
       
       // Skip if essential data is missing
       if (!secteurId || !serviceId || !bedId) {
