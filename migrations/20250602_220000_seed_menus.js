@@ -24,7 +24,7 @@ async function up() {
     { 
       path: '/global-view', 
       title: 'Global View', 
-      icon: 'layout-dashboard', 
+      icon: 'LayoutDashboard', 
       permission: ['Admin', 'User', 'Viewer', 'Manager'], 
       sortOrder: 1,
       createdAt: new Date(),
@@ -33,7 +33,7 @@ async function up() {
     { 
       path: '/sectorview', 
       title: 'Sectors', 
-      icon: 'factory', 
+      icon: 'Factory', 
       permission: ['Admin', 'User', 'Viewer', 'Manager'], 
       sortOrder: 2,
       createdAt: new Date(),
@@ -42,7 +42,7 @@ async function up() {
     { 
       path: '/services', 
       title: 'Services', 
-      icon: 'cross', 
+      icon: 'Cross', 
       permission: ['Admin', 'User', 'Viewer', 'Manager'], 
       sortOrder: 3,
       createdAt: new Date(),
