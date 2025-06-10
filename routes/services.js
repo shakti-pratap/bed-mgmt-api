@@ -64,22 +64,8 @@ router.get('/', async (req, res) => {
     
     if (id) {
       services = await Service.findOne({ ID_SERVICE: id });
-      
-      // Check if user has access to this specific service (unless admin)
-      if (services && req.user.role !== 'Admin') {
-        if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(services.ID_SERVICE)) {
-          return res.status(403).json({ error: 'Access denied to this service' });
-        }
-      }
     } else {
-      if (req.user.role === 'Admin') {
-        // Admin gets all services
-        services = await Service.find().sort({ ID_SERVICE: 1 });
-      } else {
-        // Non-admin users only get services they're authorized for
-        const authorizedServices = req.user.SERVICES_AUTORISES || [];
-        services = await Service.find({ ID_SERVICE: { $in: authorizedServices } }).sort({ ID_SERVICE: 1 });
-      }
+      services = await Service.find().sort({ ID_SERVICE: 1 });
     }
     
     res.json(services);
@@ -139,12 +125,6 @@ router.get('/', async (req, res) => {
 router.get('/secteur/:secteurId', async (req, res) => {
   try {
     let query = { ID_SECTEUR: req.params.secteurId };
-    
-    if (req.user.role !== 'Admin') {
-      // Non-admin users only get services they're authorized for within the sector
-      const authorizedServices = req.user.SERVICES_AUTORISES || [];
-      query.ID_SERVICE = { $in: authorizedServices };
-    }
     
     const services = await Service.find(query);
     res.json(services);

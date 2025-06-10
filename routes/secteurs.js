@@ -108,72 +108,30 @@ router.get('/', async (req, res) => {
  */
 router.get('/with-capacity', async (req, res) => {
   try {
-    let matchStage = {};
-    
-    if (req.user.role !== 'Admin') {
-      // Non-admin users: filter sectors by their authorized services
-      const authorizedServices = req.user.SERVICES_AUTORISES || [];
-      
-      if (authorizedServices.length === 0) {
-        return res.json([]); // No authorized services, no sectors
-      }
-      
-      // Find services to get their sector IDs
-      const services = await Service.find({ ID_SERVICE: { $in: authorizedServices } });
-      const sectorIds = [...new Set(services.map(s => s.ID_SECTEUR))];
-      matchStage = { ID_SECTEUR: { $in: sectorIds } };
-    }
-    
-    // Aggregate sectors with total capacity and available beds
+    // Simple aggregation - get all sectors with their service capacities
     const secteurs = await Secteur.aggregate([
-      { $match: matchStage },
       {
         $lookup: {
           from: 'services',
-          let: { secteurId: '$ID_SECTEUR' },
-          pipeline: [
-            { $match: { $expr: { $eq: ['$ID_SECTEUR', '$$secteurId'] } } },
-            ...(req.user.role !== 'Admin' ? [
-              { $match: { ID_SERVICE: { $in: req.user.SERVICES_AUTORISES || [] } } }
-            ] : [])
-          ],
+          localField: 'ID_SECTEUR',
+          foreignField: 'ID_SECTEUR',
           as: 'services'
         }
       },
       {
         $addFields: {
-          totalCapacity: { $sum: '$services.CAPA_REELLE' },
-          serviceIds: { $map: { input: '$services', as: 's', in: '$$s.ID_SERVICE' } }
-        }
-      },
-      {
-        $lookup: {
-          from: 'lits',
-          let: { serviceIds: '$serviceIds' },
-          pipeline: [
-            { $match: { $expr: { $and: [
-              { $in: ['$ID_SERVICE', '$$serviceIds'] },
-              { $eq: ['$ACTIF', true] },
-              { $eq: ['$ID_STATUT', 1] } // Assuming 1 means available
-            ] } } }
-          ],
-          as: 'availableBedsArr'
-        }
-      },
-      {
-        $addFields: {
-          availableBeds: { $size: '$availableBedsArr' }
+          totalCapacity: { $sum: '$services.CAPA_ARCHI' },
+          availableBeds: { $sum: '$services.CAPA_REELLE' }
         }
       },
       {
         $project: {
-          services: 0,
-          serviceIds: 0,
-          availableBedsArr: 0
+          services: 0
         }
       },
       { $sort: { ID_SECTEUR: 1 } }
     ]);
+    
     res.json(secteurs);
   } catch (error) {
     res.status(500).json({ error: error.message });

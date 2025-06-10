@@ -47,6 +47,15 @@ async function up() {
       sortOrder: 3,
       createdAt: new Date(),
       updatedAt: new Date()
+    },
+    { 
+      path: '/logs', 
+      title: 'History Logs', 
+      icon: 'Logs', 
+      permission: ['Admin', 'User', 'Viewer', 'Manager'], 
+      sortOrder: 4,
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
   ];
   

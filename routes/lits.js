@@ -11,7 +11,7 @@ router.use(auth);
  * /lits:
  *   get:
  *     summary: Get all active beds
- *     description: Retrieve a list of all active hospital beds (filtered by user permissions)
+ *     description: Retrieve a list of all active hospital beds
  *     tags: [Beds]
  *     security:
  *       - bearerAuth: []
@@ -39,13 +39,7 @@ router.use(auth);
  */
 router.get('/', async (req, res) => {
   try {
-    let query = { ACTIF: true };
-    
-    if (req.user.role !== 'Admin') {
-      // Non-admin users only get beds from their authorized services
-      const authorizedServices = req.user.SERVICES_AUTORISES || [];
-      query.ID_SERVICE = { $in: authorizedServices };
-    }
+    let query = { };
     
     const lits = await Lit.find(query).sort({ ID_LIT: 1 });
     res.json(lits);
@@ -59,7 +53,7 @@ router.get('/', async (req, res) => {
  * /lits/service/{serviceId}:
  *   get:
  *     summary: Get beds by service
- *     description: Retrieve all beds belonging to a specific service (with permission check)
+ *     description: Retrieve all beds belonging to a specific service
  *     tags: [Beds]
  *     security:
  *       - bearerAuth: []
@@ -85,12 +79,6 @@ router.get('/', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
- *       403:
- *         description: Forbidden - Access denied to this service
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Error'
  *       500:
  *         description: Server error
  *         content:
@@ -100,13 +88,6 @@ router.get('/', async (req, res) => {
  */
 router.get('/service/:serviceId', async (req, res) => {
   try {
-    // Check if user has access to this service
-    if (req.user.role !== 'Admin') {
-      if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(req.params.serviceId)) {
-        return res.status(403).json({ error: 'Access denied to this service' });
-      }
-    }
-    
     const lits = await Lit.aggregate([
       { $match: { ID_SERVICE: req.params.serviceId } },
       { $sort: { ID_LIT: 1 } },
@@ -204,18 +185,11 @@ router.get('/service/:serviceId', async (req, res) => {
  */
 router.patch('/bed/:bedId/status', async (req, res) => {
   try {
-    const { ID_STATUT, AUTEUR, COMMENTAIRE } = req.body;
+    const { ID_STATUT } = req.body;
     
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
       return res.status(404).json({ error: 'Bed not found' });
-    }
-
-    // Check if user has access to this bed's service
-    if (req.user.role !== 'Admin') {
-      if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(lit.ID_SERVICE)) {
-        return res.status(403).json({ error: 'Access denied to this bed\'s service' });
-      }
     }
 
     const previousStatus = lit.ID_STATUT;
@@ -226,19 +200,28 @@ router.patch('/bed/:bedId/status', async (req, res) => {
     lit.ACTIF = Number(ID_STATUT) === 1;
     await lit.save();
 
-    // Create history record
-    const historyRecord = new HistoriqueStatut({
+    // Update the service's available bed count (CAPA_REELLE)
+    const { Service } = require('../models');
+    const service = await Service.findOne({ ID_SERVICE: lit.ID_SERVICE });
+    if (service) {
+      const newCount = await service.updateAvailableBeds();
+    } else {
+      console.log(`❌ Service not found: ${lit.ID_SERVICE}`);
+    }
+
+    // Create history record using the static method
+    await HistoriqueStatut.createHistory({
       ID_LIT: lit.ID_LIT,
+      ID_SERVICE: lit.ID_SERVICE,
       ID_STATUT: ID_STATUT,
-      AUTEUR: AUTEUR,
-      COMMENTAIRE: COMMENTAIRE,
+      AUTEUR: req.user.NOM,
       STATUT_PRECEDENT: previousStatus
     });
-    await historyRecord.save();
 
     const updatedLit = await Lit.findOne({ ID_LIT: req.params.bedId });
     res.json(updatedLit);
   } catch (error) {
+    console.error('❌ Error updating bed status:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -248,7 +231,7 @@ router.patch('/bed/:bedId/status', async (req, res) => {
  * /lits/bed/{bedId}/history:
  *   get:
  *     summary: Get bed history
- *     description: Retrieve the status history of a specific bed (with permission check)
+ *     description: Retrieve the status history of a specific bed
  *     tags: [Beds]
  *     security:
  *       - bearerAuth: []
@@ -274,8 +257,8 @@ router.patch('/bed/:bedId/status', async (req, res) => {
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Error'
- *       403:
- *         description: Forbidden - Access denied to this bed's service
+ *       404:
+ *         description: Bed not found
  *         content:
  *           application/json:
  *             schema:
@@ -289,17 +272,10 @@ router.patch('/bed/:bedId/status', async (req, res) => {
  */
 router.get('/bed/:bedId/history', async (req, res) => {
   try {
-    // First check if bed exists and user has access to its service
+    // Check if bed exists
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
       return res.status(404).json({ error: 'Bed not found' });
-    }
-
-    // Check if user has access to this bed's service
-    if (req.user.role !== 'Admin') {
-      if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(lit.ID_SERVICE)) {
-        return res.status(403).json({ error: 'Access denied to this bed\'s service' });
-      }
     }
     
     const history = await HistoriqueStatut.getBedHistory(req.params.bedId);
@@ -354,13 +330,6 @@ router.post('/', async (req, res) => {
     const { ID_SERVICE } = req.body;
     if (!ID_SERVICE) {
       return res.status(400).json({ error: 'ID_SERVICE is required' });
-    }
-
-    // Check if user has access to this service
-    if (req.user.role !== 'Admin') {
-      if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(ID_SERVICE)) {
-        return res.status(403).json({ error: 'Access denied to this service' });
-      }
     }
     
     // Prefix: ID_SERVICE + '-'
@@ -439,13 +408,6 @@ router.put('/:id', async (req, res) => {
     const existingLit = await Lit.findOne({ ID_LIT: req.params.id });
     if (!existingLit) {
       return res.status(404).json({ error: 'Bed not found' });
-    }
-
-    // Check if user has access to this bed's service
-    if (req.user.role !== 'Admin') {
-      if (!req.user.SERVICES_AUTORISES || !req.user.SERVICES_AUTORISES.includes(existingLit.ID_SERVICE)) {
-        return res.status(403).json({ error: 'Access denied to this bed\'s service' });
-      }
     }
     
     // Prevent updating ID_LIT
@@ -594,23 +556,11 @@ router.get('/all', async (req, res) => {
     const query = {};
     if (status) query.ID_STATUT = Number(status);
     
-    let serviceIds = null;
     if (secteur) {
       // Find all services in this sector
       const services = await require('../models').Service.find({ ID_SECTEUR: Number(secteur) });
-      serviceIds = services.map(s => s.ID_SERVICE);
-      
-      if (req.user.role !== 'Admin') {
-        // Filter services by user's authorized services
-        const authorizedServices = req.user.SERVICES_AUTORISES || [];
-        serviceIds = serviceIds.filter(id => authorizedServices.includes(id));
-      }
-      
+      const serviceIds = services.map(s => s.ID_SERVICE);
       query.ID_SERVICE = { $in: serviceIds };
-    } else if (req.user.role !== 'Admin') {
-      // If no sector filter and not admin, filter by authorized services
-      const authorizedServices = req.user.SERVICES_AUTORISES || [];
-      query.ID_SERVICE = { $in: authorizedServices };
     }
     
     const total = await Lit.countDocuments(query);
@@ -620,6 +570,223 @@ router.get('/all', async (req, res) => {
       .limit(Number(limit));
     res.json({ total, beds });
   } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+/**
+ * @swagger
+ * /lits/history:
+ *   get:
+ *     summary: Get bed status history with filters and pagination
+ *     tags: [Beds]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: bedId
+ *         schema:
+ *           type: string
+ *         description: Filter by bed ID
+ *       - in: query
+ *         name: serviceId
+ *         schema:
+ *           type: string
+ *         description: Filter by service ID
+ *       - in: query
+ *         name: startDate
+ *         schema:
+ *           type: string
+ *           format: date-time
+ *         description: Filter by start date (ISO format)
+ *       - in: query
+ *         name: endDate
+ *         schema:
+ *           type: string
+ *           format: date-time
+ *         description: Filter by end date (ISO format)
+ *       - in: query
+ *         name: status
+ *         schema:
+ *           type: number
+ *         description: Filter by status ID
+ *       - in: query
+ *         name: author
+ *         schema:
+ *           type: string
+ *         description: Filter by author name
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Number of items per page
+ *     responses:
+ *       200:
+ *         description: List of history records
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: integer
+ *                 history:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       ID_HIST:
+ *                         type: number
+ *                       ID_LIT:
+ *                         type: string
+ *                       ID_SERVICE:
+ *                         type: string
+ *                       service:
+ *                         type: string
+ *                       status:
+ *                         type: object
+ *                         properties:
+ *                           ID_STATUT:
+ *                             type: number
+ *                           LIB_STATUT:
+ *                             type: string
+ *                       previousStatus:
+ *                         type: object
+ *                         properties:
+ *                           ID_STATUT:
+ *                             type: number
+ *                           LIB_STATUT:
+ *                             type: string
+ *                       DATE_HEURE:
+ *                         type: string
+ *                         format: date-time
+ *                       AUTEUR:
+ *                         type: string
+ */
+router.get('/history', async (req, res) => {
+  try {
+    const { 
+      bedId, 
+      serviceId,
+      startDate, 
+      endDate, 
+      status, 
+      author,
+      page = 1, 
+      limit = 10 
+    } = req.query;
+
+    // Build query
+    const query = {};
+    
+    if (bedId) {
+      query.ID_LIT = bedId;
+    }
+
+    if (serviceId) {
+      query.ID_SERVICE = serviceId;
+    }
+    
+    if (status) {
+      query.ID_STATUT = Number(status);
+    }
+    
+    if (author) {
+      query.AUTEUR = author;
+    }
+    
+    if (startDate || endDate) {
+      query.DATE_HEURE = {};
+      if (startDate) {
+        query.DATE_HEURE.$gte = new Date(startDate);
+      }
+      if (endDate) {
+        query.DATE_HEURE.$lte = new Date(endDate);
+      }
+    }
+
+    // Get total count
+    const total = await HistoriqueStatut.countDocuments(query);
+
+    // Get paginated results with status information
+    const history = await HistoriqueStatut.aggregate([
+      { $match: query },
+      {
+        $lookup: {
+          from: 'statuts',
+          let: { statusId: { $toInt: "$ID_STATUT" } },
+          pipeline: [
+            {
+              $match: {
+                $expr: { $eq: ["$ID_STATUT", "$$statusId"] }
+              }
+            }
+          ],
+          as: 'status'
+        }
+      },
+      {
+        $lookup: {
+          from: 'statuts',
+          let: { prevStatusId: { $toInt: "$STATUT_PRECEDENT" } },
+          pipeline: [
+            {
+              $match: {
+                $expr: { $eq: ["$ID_STATUT", "$$prevStatusId"] }
+              }
+            }
+          ],
+          as: 'previousStatus'
+        }
+      },
+      {
+        $lookup: {
+          from: 'services',
+          localField: 'ID_SERVICE',
+          foreignField: 'ID_SERVICE',
+          as: 'service'
+        }
+      },
+      {
+        $addFields: {
+          status: { $arrayElemAt: ['$status.LIB_STATUT', 0] },
+          previousStatus: { $arrayElemAt: ['$previousStatus.LIB_STATUT', 0] },
+          service: { $arrayElemAt: ['$service.LIB_SERVICE', 0] }
+        }
+      },
+      {
+        $project: {
+          ID_HIST: 1,
+          ID_LIT: 1,
+          ID_SERVICE: 1,
+          service: 1,
+          status: 1,
+          previousStatus: 1,
+          DATE_HEURE: 1,
+          AUTEUR: 1
+        }
+      },
+      { $sort: { DATE_HEURE: -1 } },
+      { $skip: (Number(page) - 1) * Number(limit) },
+      { $limit: Number(limit) }
+    ]);
+
+    res.json({
+      total,
+      history,
+      page: Number(page),
+      limit: Number(limit),
+      totalPages: Math.ceil(total / Number(limit))
+    });
+  } catch (error) {
+    console.error('Error fetching history:', error);
     res.status(500).json({ error: error.message });
   }
 });
