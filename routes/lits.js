@@ -702,20 +702,28 @@ router.get('/history', async (req, res) => {
       query.AUTEUR = author;
     }
     
+    // Improved date handling
     if (startDate || endDate) {
       query.DATE_HEURE = {};
       if (startDate) {
-        query.DATE_HEURE.$gte = new Date(startDate);
+        // Set time to start of day
+        const start = new Date(startDate);
+        start.setHours(0, 0, 0, 0);
+        query.DATE_HEURE.$gte = start;
       }
       if (endDate) {
-        query.DATE_HEURE.$lte = new Date(endDate);
+        // Set time to end of day
+        const end = new Date(endDate);
+        end.setHours(23, 59, 59, 999);
+        query.DATE_HEURE.$lte = end;
       }
     }
 
-    // Get total count
+    console.log('Query:', JSON.stringify(query, null, 2)); // Add this for debugging
+
+    // Rest of the code remains the same...
     const total = await HistoriqueStatut.countDocuments(query);
 
-    // Get paginated results with status information
     const history = await HistoriqueStatut.aggregate([
       { $match: query },
       {
@@ -791,4 +799,4 @@ router.get('/history', async (req, res) => {
   }
 });
 
-module.exports = router; 
+module.exports = router;
