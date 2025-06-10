@@ -719,8 +719,6 @@ router.get('/history', async (req, res) => {
       }
     }
 
-    console.log('Query:', JSON.stringify(query, null, 2)); // Add this for debugging
-
     // Rest of the code remains the same...
     const total = await HistoriqueStatut.countDocuments(query);
 
