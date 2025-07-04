@@ -296,14 +296,8 @@ router.patch('/bed/:bedId/status', async (req, res) => {
     lit.ACTIF = Number(ID_STATUT) === 1;
     await lit.save();
 
-    // Update the service's available bed count (CAPA_REELLE)
-    const { Service } = require('../models');
-    const service = await Service.findOne({ ID_SERVICE: lit.ID_SERVICE });
-    if (service) {
-      const newCount = await service.updateAvailableBeds();
-    } else {
-      console.log(`❌ Service not found: ${lit.ID_SERVICE}`);
-    }
+    // Remove: Update the service's available bed count (CAPA_REELLE)
+    // No need to update service, as capacity is now dynamic
 
     // Create history record using the static method
     await HistoriqueStatut.createHistory({

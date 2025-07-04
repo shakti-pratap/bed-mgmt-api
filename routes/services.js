@@ -35,15 +35,15 @@ router.use(auth);
  *                   ID_SECTEUR:
  *                     type: number
  *                     description: Sector identifier
- *                   CAPA_ARCHI:
- *                     type: number
- *                     description: Architectural capacity
- *                   CAPA_REELLE:
- *                     type: number
- *                     description: Real capacity
  *                   ROR:
  *                     type: boolean
  *                     description: ROR status
+ *                   CAPA_ARCHI:
+ *                     type: number
+ *                     description: Total beds in the service (calculated dynamically)
+ *                   CAPA_REELLE:
+ *                     type: number
+ *                     description: Active beds in the service (calculated dynamically)
  *       401:
  *         description: Unauthorized
  *         content:
@@ -61,13 +61,27 @@ router.get('/', async (req, res) => {
   try {
     const { id } = req.query;
     let services;
-    
     if (id) {
       services = await Service.findOne({ ID_SERVICE: id });
+      if (services) {
+        const beds = await require('../models').Lit.find({ ID_SERVICE: services.ID_SERVICE });
+        services = services.toObject();
+        services.CAPA_ARCHI = beds.length;
+        services.CAPA_REELLE = beds.filter(b => b.ACTIF).length;
+      }
     } else {
-      services = await Service.find().sort({ ID_SERVICE: 1 });
+      // Get all services and calculate capacities
+      const allServices = await Service.find().sort({ ID_SERVICE: 1 });
+      const Lit = require('../models').Lit;
+      services = await Promise.all(allServices.map(async (service) => {
+        const beds = await Lit.find({ ID_SERVICE: service.ID_SERVICE });
+        return {
+          ...service.toObject(),
+          CAPA_ARCHI: beds.length,
+          CAPA_REELLE: beds.filter(b => b.ACTIF).length
+        };
+      }));
     }
-    
     res.json(services);
   } catch (error) {
     res.status(500).json({ error: error.message });

@@ -108,7 +108,7 @@ router.get('/', async (req, res) => {
  */
 router.get('/with-capacity', async (req, res) => {
   try {
-    // Simple aggregation - get all sectors with their service capacities
+    // Aggregate sectors with dynamic capacity calculation
     const secteurs = await Secteur.aggregate([
       {
         $lookup: {
@@ -119,19 +119,55 @@ router.get('/with-capacity', async (req, res) => {
         }
       },
       {
-        $addFields: {
-          totalCapacity: { $sum: '$services.CAPA_ARCHI' },
-          availableBeds: { $sum: '$services.CAPA_REELLE' }
+        $unwind: {
+          path: '$services',
+          preserveNullAndEmptyArrays: true
         }
       },
       {
-        $project: {
-          services: 0
+        $lookup: {
+          from: 'lits',
+          localField: 'services.ID_SERVICE',
+          foreignField: 'ID_SERVICE',
+          as: 'beds'
+        }
+      },
+      {
+        $addFields: {
+          'services.totalCapacity': { $size: '$beds' },
+          'services.realCapacity': {
+            $size: {
+              $filter: {
+                input: '$beds',
+                as: 'bed',
+                cond: { $eq: ['$$bed.ACTIF', true] }
+              }
+            }
+          },
+          'services.availableCapacity': {
+            $size: {
+              $filter: {
+                input: '$beds',
+                as: 'bed',
+                cond: { $and: [ { $eq: ['$$bed.ACTIF', true] }, { $eq: ['$$bed.ID_STATUT', 1] } ] }
+              }
+            }
+          }
+        }
+      },
+      {
+        $group: {
+          _id: '$_id',
+          ID_SECTEUR: { $first: '$ID_SECTEUR' },
+          LIB_SECTEUR: { $first: '$LIB_SECTEUR' },
+          ABR_SECTEUR: { $first: '$ABR_SECTEUR' },
+          totalCapacity: { $sum: '$services.totalCapacity' },
+          availableBeds: { $sum: '$services.availableCapacity' },
+          realCapacity: { $sum: '$services.realCapacity' }
         }
       },
       { $sort: { ID_SECTEUR: 1 } }
     ]);
-    
     res.json(secteurs);
   } catch (error) {
     res.status(500).json({ error: error.message });
