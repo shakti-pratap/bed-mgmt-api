@@ -766,7 +766,7 @@ router.get('/all', async (req, res) => {
  *                       AUTEUR:
  *                         type: string
  */
-router.get('/history', async (req, res) => {
+router.get('/history', auth, async (req, res) => {
   try {
     const { 
       bedId, 
@@ -815,7 +815,27 @@ router.get('/history', async (req, res) => {
       }
     }
 
-    // Rest of the code remains the same...
+    // Role-based access control for history
+    // Admin and Manager can see all history
+    // User and Viewer can only see history for their authorized services
+    if (req.user.ROLE === 'User' || req.user.ROLE === 'Viewer') {
+      // Filter by user's authorized services
+      if (req.user.SERVICES_AUTORISES && req.user.SERVICES_AUTORISES.length > 0) {
+        query.ID_SERVICE = { $in: req.user.SERVICES_AUTORISES };
+      } else {
+        // If user has no authorized services, return empty result
+        return res.json({
+          total: 0,
+          history: [],
+          page: Number(page),
+          limit: Number(limit),
+          totalPages: 0
+        });
+      }
+    }
+    // For Admin and Manager roles, no additional filtering needed - they can see all
+
+    // Get total count with role-based filtering
     const total = await HistoriqueStatut.countDocuments(query);
 
     const history = await HistoriqueStatut.aggregate([
