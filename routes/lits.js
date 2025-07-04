@@ -53,7 +53,7 @@ router.get('/', async (req, res) => {
  * /lits/service/{serviceId}:
  *   get:
  *     summary: Get beds by service
- *     description: Retrieve all beds belonging to a specific service
+ *     description: Retrieve all beds belonging to a specific service with pagination and search
  *     tags: [Beds]
  *     security:
  *       - bearerAuth: []
@@ -64,15 +64,48 @@ router.get('/', async (req, res) => {
  *         schema:
  *           type: string
  *         description: Service identifier
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term for bed ID or status
+ *       - in: query
+ *         name: status
+ *         schema:
+ *           type: number
+ *         description: Filter by status ID_STATUT
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Number of items per page
  *     responses:
  *       200:
  *         description: List of beds in the service
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Lit'
+ *               type: object
+ *               properties:
+ *                 total:
+ *                   type: integer
+ *                 beds:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Lit'
+ *                 page:
+ *                   type: integer
+ *                 limit:
+ *                   type: integer
+ *                 totalPages:
+ *                   type: integer
  *       401:
  *         description: Unauthorized
  *         content:
@@ -88,9 +121,25 @@ router.get('/', async (req, res) => {
  */
 router.get('/service/:serviceId', async (req, res) => {
   try {
-    const lits = await Lit.aggregate([
-      { $match: { ID_SERVICE: req.params.serviceId } },
-      { $sort: { ID_LIT: 1 } },
+    const { search, status, page = 1, limit = 10 } = req.query;
+    
+    // Build match conditions
+    const matchConditions = { ID_SERVICE: req.params.serviceId };
+    
+    if (status) {
+      matchConditions.ID_STATUT = Number(status);
+    }
+    
+    if (search) {
+      // Search in bed ID or status name
+      matchConditions.$or = [
+        { ID_LIT: { $regex: search, $options: 'i' } }
+      ];
+    }
+    
+    // First, get total count for pagination
+    const total = await Lit.aggregate([
+      { $match: matchConditions },
       {
         $lookup: {
           from: 'statuts',
@@ -104,13 +153,60 @@ router.get('/service/:serviceId', async (req, res) => {
           LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
         }
       },
+      ...(search ? [{
+        $match: {
+          $or: [
+            { ID_LIT: { $regex: search, $options: 'i' } },
+            { LIB_STATUT: { $regex: search, $options: 'i' } }
+          ]
+        }
+      }] : []),
+      { $count: 'total' }
+    ]);
+    
+    const totalCount = total.length > 0 ? total[0].total : 0;
+    
+    // Get beds with pagination
+    const beds = await Lit.aggregate([
+      { $match: matchConditions },
+      {
+        $lookup: {
+          from: 'statuts',
+          localField: 'ID_STATUT',
+          foreignField: 'ID_STATUT',
+          as: 'statut_info'
+        }
+      },
+      {
+        $addFields: {
+          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
+        }
+      },
+      ...(search ? [{
+        $match: {
+          $or: [
+            { ID_LIT: { $regex: search, $options: 'i' } },
+            { LIB_STATUT: { $regex: search, $options: 'i' } }
+          ]
+        }
+      }] : []),
+      { $sort: { ID_LIT: 1 } },
+      { $skip: (Number(page) - 1) * Number(limit) },
+      { $limit: Number(limit) },
       {
         $project: {
           statut_info: 0
         }
       }
     ]);
-    res.json(lits);
+    
+    res.json({
+      total: totalCount,
+      beds,
+      page: Number(page),
+      limit: Number(limit),
+      totalPages: Math.ceil(totalCount / Number(limit))
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
