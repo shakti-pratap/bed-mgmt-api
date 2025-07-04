@@ -134,8 +134,7 @@ router.get('/with-capacity', async (req, res) => {
       },
       {
         $addFields: {
-          'services.totalCapacity': { $size: '$beds' },
-          'services.realCapacity': {
+          'services.totalCapacity': {
             $size: {
               $filter: {
                 input: '$beds',
@@ -144,12 +143,21 @@ router.get('/with-capacity', async (req, res) => {
               }
             }
           },
+          'services.realCapacity': {
+            $size: {
+              $filter: {
+                input: '$beds',
+                as: 'bed',
+                cond: { $and: [{ $eq: ['$$bed.ID_STATUT', 1] }, { $eq: ['$$bed.ACTIF', true] }] }
+              }
+            }
+          },
           'services.availableCapacity': {
             $size: {
               $filter: {
                 input: '$beds',
                 as: 'bed',
-                cond: { $and: [ { $eq: ['$$bed.ACTIF', true] }, { $eq: ['$$bed.ID_STATUT', 1] } ] }
+                cond: { $and: [{ $eq: ['$$bed.ID_STATUT', 1] }, { $eq: ['$$bed.ACTIF', true] }] }
               }
             }
           }
