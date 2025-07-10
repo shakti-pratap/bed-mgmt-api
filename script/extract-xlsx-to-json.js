@@ -55,9 +55,7 @@ try {
           ID_SERVICE: serviceId,
           LIB_SERVICE: serviceName,
           ID_SECTEUR: secteurId,
-          CAPA_ARCHI: 0,    // Will be calculated
-          CAPA_REELLE: 0,   // Will be calculated
-          ROR: true         // Set to true for all services
+          ROR: true // Set to true for all services
         };
       }
 
@@ -75,12 +73,7 @@ try {
   });
 
   // Update service capacities based on bed count
-  Object.keys(servicesMap).forEach(serviceId => {
-    const bedCount = servicesBedCount[serviceId] || 0;
-    servicesMap[serviceId].CAPA_ARCHI = bedCount;
-    // CAPA_REELLE equals CAPA_ARCHI since all beds are active
-    servicesMap[serviceId].CAPA_REELLE = bedCount;
-  });
+  // (No longer needed, so this block is removed)
 
   // Convert maps to arrays
   const secteurs = Object.values(secteursMap);

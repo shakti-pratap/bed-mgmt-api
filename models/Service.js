@@ -17,16 +17,6 @@ const serviceSchema = new mongoose.Schema({
     required: true,
     ref: 'Secteur'
   },
-  CAPA_ARCHI: {
-    type: Number,
-    required: true,
-    min: 0
-  },
-  CAPA_REELLE: {
-    type: Number,
-    required: true,
-    min: 0
-  },
   ROR: {
     type: Boolean,
     default: true,
@@ -41,37 +31,39 @@ const serviceSchema = new mongoose.Schema({
 serviceSchema.index({ ID_SECTEUR: 1 });
 serviceSchema.index({ ROR: 1 });
 
-// Method to update available bed count (CAPA_REELLE)
-serviceSchema.methods.updateAvailableBeds = async function() {
+// Static methods for dynamic capacity calculation
+serviceSchema.statics.getCapacityForService = async function(serviceId) {
   const Lit = mongoose.model('Lit');
-  const availableCount = await Lit.countDocuments({
-    ID_SERVICE: this.ID_SERVICE,
-    ACTIF: true,
-    ID_STATUT: 1 // Only "Libre" beds are available
+  const beds = await Lit.find({ ID_SERVICE: serviceId });
+  return {
+    CAPA_ARCHI: beds.filter(b => b.ACTIF === true).length,
+    CAPA_REELLE: beds.filter(b => b.ID_STATUT === 1 && b.ACTIF === true).length
+  };
+};
+
+serviceSchema.statics.getCapacityForServices = async function(services) {
+  const Lit = mongoose.model('Lit');
+  const serviceIds = services.map(s => s.ID_SERVICE);
+  const allBeds = await Lit.find({ ID_SERVICE: { $in: serviceIds } });
+  
+  // Group beds by service
+  const bedsByService = {};
+  allBeds.forEach(bed => {
+    if (!bedsByService[bed.ID_SERVICE]) {
+      bedsByService[bed.ID_SERVICE] = [];
+    }
+    bedsByService[bed.ID_SERVICE].push(bed);
   });
   
-  this.CAPA_REELLE = availableCount;
-  await this.save();
-  return availableCount;
+  // Add capacity to each service
+  return services.map(service => {
+    const beds = bedsByService[service.ID_SERVICE] || [];
+    return {
+      ...service.toObject(),
+      CAPA_ARCHI: beds.filter(b => b.ACTIF === true).length,
+      CAPA_REELLE: beds.filter(b => b.ID_STATUT === 1 && b.ACTIF === true).length
+    };
+  });
 };
-
-// Static method to update all services' available bed counts
-serviceSchema.statics.updateAllAvailableBeds = async function() {
-  const Lit = mongoose.model('Lit');
-  const services = await this.find({});
-  
-  for (const service of services) {
-    await service.updateAvailableBeds();
-  }
-  
-  console.log(`Updated available bed counts for ${services.length} services`);
-};
-
-// Virtual for occupancy rate
-serviceSchema.virtual('TAUX_OCCUPATION').get(function() {
-  if (this.CAPA_ARCHI === 0) return 0;
-  const occupied = this.CAPA_ARCHI - this.CAPA_REELLE;
-  return Math.round((occupied / this.CAPA_ARCHI) * 100);
-});
 
 module.exports = mongoose.model('Service', serviceSchema); 

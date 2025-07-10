@@ -124,7 +124,7 @@ router.get('/service/:serviceId', async (req, res) => {
     const { search, status, page = 1, limit = 10 } = req.query;
     
     // Build match conditions
-    const matchConditions = { ID_SERVICE: req.params.serviceId };
+    const matchConditions = { ID_SERVICE: req.params.serviceId, ACTIF: true };
     
     if (status) {
       matchConditions.ID_STATUT = Number(status);
@@ -288,22 +288,20 @@ router.patch('/bed/:bedId/status', async (req, res) => {
       return res.status(404).json({ error: 'Bed not found' });
     }
 
+    // Check if bed is active
+    if (!lit.ACTIF) {
+      return res.status(400).json({ error: 'Cannot update status of inactive bed' });
+    }
+
     const previousStatus = lit.ID_STATUT;
     
     // Update bed status and ACTIF based on status
     // Only status 1 (Libre) makes bed active, all others make it inactive
     lit.ID_STATUT = ID_STATUT;
-    lit.ACTIF = Number(ID_STATUT) === 1;
     await lit.save();
 
-    // Update the service's available bed count (CAPA_REELLE)
-    const { Service } = require('../models');
-    const service = await Service.findOne({ ID_SERVICE: lit.ID_SERVICE });
-    if (service) {
-      const newCount = await service.updateAvailableBeds();
-    } else {
-      console.log(`❌ Service not found: ${lit.ID_SERVICE}`);
-    }
+    // Remove: Update the service's available bed count (CAPA_REELLE)
+    // No need to update service, as capacity is now dynamic
 
     // Create history record using the static method
     await HistoriqueStatut.createHistory({
@@ -510,12 +508,6 @@ router.put('/:id', async (req, res) => {
     const updateData = { ...req.body };
     delete updateData.ID_LIT;
     
-    // If ID_STATUT is being updated, set ACTIF accordingly
-    // Only status 1 (Libre) makes bed active, all others make it inactive
-    if (updateData.ID_STATUT) {
-      updateData.ACTIF = Number(updateData.ID_STATUT) === 1;
-    }
-    
     const updatedLit = await Lit.findOneAndUpdate(
       { ID_LIT: req.params.id },
       updateData,
@@ -608,6 +600,11 @@ router.delete('/:id', async (req, res) => {
  *           type: number
  *         description: Filter by status ID_STATUT
  *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term for bed ID, service name, or status name
+ *       - in: query
  *         name: page
  *         schema:
  *           type: integer
@@ -648,23 +645,117 @@ router.delete('/:id', async (req, res) => {
  */
 router.get('/all', async (req, res) => {
   try {
-    const { secteur, status, page = 1, limit = 10 } = req.query;
-    const query = {};
-    if (status) query.ID_STATUT = Number(status);
+    const { secteur, status, search, page = 1, limit = 10 } = req.query;
+    
+    // Build match conditions
+    const matchConditions = {};
+    if (status) matchConditions.ID_STATUT = Number(status);
     
     if (secteur) {
       // Find all services in this sector
       const services = await require('../models').Service.find({ ID_SECTEUR: Number(secteur) });
       const serviceIds = services.map(s => s.ID_SERVICE);
-      query.ID_SERVICE = { $in: serviceIds };
+      matchConditions.ID_SERVICE = { $in: serviceIds };
     }
     
-    const total = await Lit.countDocuments(query);
-    const beds = await Lit.find(query)
-      .sort({ ID_LIT: 1 })
-      .skip((Number(page) - 1) * Number(limit))
-      .limit(Number(limit));
-    res.json({ total, beds });
+    if (search) {
+      // Search in bed ID, service name, or status name
+      matchConditions.$or = [
+        { ID_LIT: { $regex: search, $options: 'i' } }
+      ];
+    }
+    
+    // First, get total count for pagination
+    const total = await Lit.aggregate([
+      { $match: matchConditions },
+      {
+        $lookup: {
+          from: 'services',
+          localField: 'ID_SERVICE',
+          foreignField: 'ID_SERVICE',
+          as: 'service_info'
+        }
+      },
+      {
+        $lookup: {
+          from: 'statuts',
+          localField: 'ID_STATUT',
+          foreignField: 'ID_STATUT',
+          as: 'statut_info'
+        }
+      },
+      {
+        $addFields: {
+          LIB_SERVICE: { $arrayElemAt: ['$service_info.LIB_SERVICE', 0] },
+          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
+        }
+      },
+      ...(search ? [{
+        $match: {
+          $or: [
+            { ID_LIT: { $regex: search, $options: 'i' } },
+            { LIB_SERVICE: { $regex: search, $options: 'i' } },
+            { LIB_STATUT: { $regex: search, $options: 'i' } }
+          ]
+        }
+      }] : []),
+      { $count: 'total' }
+    ]);
+    
+    const totalCount = total.length > 0 ? total[0].total : 0;
+    
+    // Get beds with pagination and search
+    const beds = await Lit.aggregate([
+      { $match: matchConditions },
+      {
+        $lookup: {
+          from: 'services',
+          localField: 'ID_SERVICE',
+          foreignField: 'ID_SERVICE',
+          as: 'service_info'
+        }
+      },
+      {
+        $lookup: {
+          from: 'statuts',
+          localField: 'ID_STATUT',
+          foreignField: 'ID_STATUT',
+          as: 'statut_info'
+        }
+      },
+      {
+        $addFields: {
+          LIB_SERVICE: { $arrayElemAt: ['$service_info.LIB_SERVICE', 0] },
+          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
+        }
+      },
+      ...(search ? [{
+        $match: {
+          $or: [
+            { ID_LIT: { $regex: search, $options: 'i' } },
+            { LIB_SERVICE: { $regex: search, $options: 'i' } },
+            { LIB_STATUT: { $regex: search, $options: 'i' } }
+          ]
+        }
+      }] : []),
+      { $sort: { ID_LIT: 1 } },
+      { $skip: (Number(page) - 1) * Number(limit) },
+      { $limit: Number(limit) },
+      {
+        $project: {
+          service_info: 0,
+          statut_info: 0
+        }
+      }
+    ]);
+    
+    res.json({ 
+      total: totalCount, 
+      beds,
+      page: Number(page),
+      limit: Number(limit),
+      totalPages: Math.ceil(totalCount / Number(limit))
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
