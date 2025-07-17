@@ -84,6 +84,100 @@ router.post('/login', async (req, res) => {
 
 /**
  * @swagger
+ * /utilisateurs/change-password:
+ *   post:
+ *     summary: Change user password
+ *     description: Change the password for the authenticated user and clear force password change flag
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - EMAIL
+ *               - currentPassword
+ *               - newPassword
+ *             properties:
+ *               EMAIL:
+ *                 type: string
+ *                 format: email
+ *                 description: User email
+ *               currentPassword:
+ *                 type: string
+ *                 description: Current password
+ *               newPassword:
+ *                 type: string
+ *                 minLength: 6
+ *                 description: New password (minimum 6 characters)
+ *     responses:
+ *       200:
+ *         description: Password changed successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   $ref: '#/components/schemas/Utilisateur'
+ *       400:
+ *         description: Invalid input or current password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       404:
+ *         description: User not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.post('/change-password', async (req, res) => {
+  const { EMAIL, currentPassword, newPassword } = req.body;
+  
+  // Validate input
+  if (!EMAIL || !currentPassword || !newPassword) {
+    return res.status(400).json({ 
+      error: 'EMAIL, currentPassword, and newPassword are required' 
+    });
+  }
+  
+  if (newPassword.length < 6) {
+    return res.status(400).json({ 
+      error: 'New password must be at least 6 characters long' 
+    });
+  }
+  
+  try {
+    // Find the user
+    const user = await Utilisateur.findOne({ EMAIL: EMAIL.toLowerCase(), ACTIF: true });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    // Verify current password
+    if (user.password !== currentPassword) {
+      return res.status(400).json({ error: 'Current password is incorrect' });
+    }
+    
+    // Change password using the model method
+    await user.changePassword(newPassword);
+    
+    res.json({ 
+      message: 'Password changed successfully',
+      user: user
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+/**
+ * @swagger
  * /utilisateurs:
  *   post:
  *     summary: Create a new user

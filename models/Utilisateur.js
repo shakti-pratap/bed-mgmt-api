@@ -40,6 +40,11 @@ const utilisateurSchema = new mongoose.Schema({
     default: 'password123',
     minlength: 6
   },
+  FORCE_PASSWORD_CHANGE: {
+    type: Boolean,
+    default: true,
+    required: true
+  },
   DERNIERE_CONNEXION: {
     type: Date
   }
@@ -48,10 +53,19 @@ const utilisateurSchema = new mongoose.Schema({
   collection: 'utilisateurs'
 });
 
+// Transform function to exclude password when converting to JSON
+utilisateurSchema.set('toJSON', {
+  transform: function(doc, ret) {
+    delete ret.password;
+    return ret;
+  }
+});
+
 // Indexes for better performance
 utilisateurSchema.index({ ROLE: 1 });
 utilisateurSchema.index({ ACTIF: 1 });
 utilisateurSchema.index({ SERVICES_AUTORISES: 1 });
+utilisateurSchema.index({ FORCE_PASSWORD_CHANGE: 1 });
 
 // Virtual to check if user has admin role
 utilisateurSchema.virtual('isAdmin').get(function() {
@@ -67,6 +81,13 @@ utilisateurSchema.methods.hasAccessToService = function(serviceId) {
 // Method to update last login
 utilisateurSchema.methods.updateLastLogin = function() {
   this.DERNIERE_CONNEXION = new Date();
+  return this.save();
+};
+
+// Method to change password and clear force password change flag
+utilisateurSchema.methods.changePassword = function(newPassword) {
+  this.password = newPassword;
+  this.FORCE_PASSWORD_CHANGE = false;
   return this.save();
 };
 
