@@ -35,15 +35,20 @@ router.use(auth);
  *                   ID_SECTEUR:
  *                     type: number
  *                     description: Sector identifier
- *                   CAPA_ARCHI:
- *                     type: number
- *                     description: Architectural capacity
- *                   CAPA_REELLE:
- *                     type: number
- *                     description: Real capacity
  *                   ROR:
  *                     type: boolean
  *                     description: ROR status
+ *                   CAPA_ARCHI:
+ *                     type: number
+ *                     description: Total beds in the service (calculated dynamically)
+ *                   CAPA_REELLE:
+ *                     type: number
+ *                     description: Active beds in the service (calculated dynamically)
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term for service ID or service name
  *       401:
  *         description: Unauthorized
  *         content:
@@ -59,15 +64,39 @@ router.use(auth);
  */
 router.get('/', async (req, res) => {
   try {
-    const { id } = req.query;
+    const { id, search } = req.query;
     let services;
     
     if (id) {
       services = await Service.findOne({ ID_SERVICE: id });
+      if (services) {
+        const beds = await require('../models').Lit.find({ ID_SERVICE: services.ID_SERVICE });
+        services = services.toObject();
+        services.CAPA_ARCHI = beds.filter(b => b.ACTIF === true).length;
+        services.CAPA_REELLE = beds.filter(b => b.ID_STATUT === 1 && b.ACTIF === true).length;
+      }
     } else {
-      services = await Service.find().sort({ ID_SERVICE: 1 });
+      // Build query for search
+      let query = {};
+      if (search) {
+        query.$or = [
+          { ID_SERVICE: { $regex: search, $options: 'i' } },
+          { LIB_SERVICE: { $regex: search, $options: 'i' } }
+        ];
+      }
+      
+      // Get services and calculate capacities
+      const allServices = await Service.find(query).sort({ ID_SERVICE: 1 });
+      const Lit = require('../models').Lit;
+      services = await Promise.all(allServices.map(async (service) => {
+        const beds = await Lit.find({ ID_SERVICE: service.ID_SERVICE });
+        return {
+          ...service.toObject(),
+          CAPA_ARCHI: beds.filter(b => b.ACTIF === true).length,
+          CAPA_REELLE: beds.filter(b => b.ID_STATUT === 1 && b.ACTIF === true).length
+        };
+      }));
     }
-    
     res.json(services);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -127,7 +156,8 @@ router.get('/secteur/:secteurId', async (req, res) => {
     let query = { ID_SECTEUR: req.params.secteurId };
     
     const services = await Service.find(query);
-    res.json(services);
+    const servicesWithCapacity = await Service.getCapacityForServices(services);
+    res.json(servicesWithCapacity);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
