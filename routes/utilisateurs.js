@@ -326,17 +326,75 @@ router.delete('/:id', async (req, res) => {
  * @swagger
  * /utilisateurs:
  *   get:
- *     summary: Get all users
+ *     summary: Get all users with pagination, search, and sorting
  *     tags: [Users]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 100
+ *           default: 10
+ *         description: Number of items per page
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term to filter users across all fields
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           default: ID_UTILISATEUR
+ *         description: Field to sort by (any user field)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *           default: asc
+ *         description: Sort order (ascending or descending)
  *     responses:
  *       200:
- *         description: List of users
+ *         description: Paginated list of users with metadata
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Utilisateur'
+ *               type: object
+ *               properties:
+ *                 users:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Utilisateur'
+ *                 pagination:
+ *                   type: object
+ *                   properties:
+ *                     currentPage:
+ *                       type: integer
+ *                     totalPages:
+ *                       type: integer
+ *                     totalItems:
+ *                       type: integer
+ *                     itemsPerPage:
+ *                       type: integer
+ *                     hasNextPage:
+ *                       type: boolean
+ *                     hasPrevPage:
+ *                       type: boolean
+ *       400:
+ *         description: Invalid query parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       500:
  *         description: Server error
  *         content:
@@ -346,8 +404,74 @@ router.delete('/:id', async (req, res) => {
  */
 router.get('/', async (req, res) => {
   try {
-    const users = await Utilisateur.find().sort({ ID_UTILISATEUR: 1 });
-    res.json(users);
+    // Extract query parameters with defaults
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search || '';
+    const sortBy = req.query.sortBy || 'ID_UTILISATEUR';
+    const sortOrder = req.query.sortOrder === 'desc' ? -1 : 1;
+
+    // Validate pagination parameters
+    if (page < 1) {
+      return res.status(400).json({ error: 'Page must be greater than 0' });
+    }
+    if (limit < 1 || limit > 100) {
+      return res.status(400).json({ error: 'Limit must be between 1 and 100' });
+    }
+
+    // Build search filter
+    let filter = {};
+    if (search) {
+      // Create regex for case-insensitive search
+      const searchRegex = new RegExp(search, 'i');
+      
+      // Search across all relevant string fields
+      filter = {
+        $or: [
+          { ID_UTILISATEUR: searchRegex },
+          { NOM: searchRegex },
+          { EMAIL: searchRegex },
+          { ROLE: searchRegex },
+          { TELEPHONE: searchRegex },
+          { SERVICE_PRINCIPAL: searchRegex },
+          { SERVICES_AUTORISES: { $in: [searchRegex] } }
+        ]
+      };
+    }
+
+    // Calculate skip value for pagination
+    const skip = (page - 1) * limit;
+
+    // Build sort object
+    const sortObject = {};
+    sortObject[sortBy] = sortOrder;
+
+    // Execute queries in parallel for better performance
+    const [users, totalCount] = await Promise.all([
+      Utilisateur.find(filter)
+        .sort(sortObject)
+        .skip(skip)
+        .limit(limit),
+      Utilisateur.countDocuments(filter)
+    ]);
+
+    // Calculate pagination metadata
+    const totalPages = Math.ceil(totalCount / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    // Return paginated response
+    res.json({
+      users,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalItems: totalCount,
+        itemsPerPage: limit,
+        hasNextPage,
+        hasPrevPage
+      }
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

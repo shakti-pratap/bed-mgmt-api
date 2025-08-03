@@ -10,20 +10,78 @@ router.use(auth);
  * @swagger
  * /secteurs:
  *   get:
- *     summary: Get all sectors
- *     description: Retrieve a list of all hospital sectors (filtered by user permissions)
+ *     summary: Get all sectors with pagination, search, and sorting
+ *     description: Retrieve a paginated, searchable, and sortable list of hospital sectors (filtered by user permissions)
  *     tags: [Sectors]
  *     security:
  *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 100
+ *           default: 10
+ *         description: Number of items per page
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term to filter sectors across all fields
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           default: ID_SECTEUR
+ *         description: Field to sort by (any sector field)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *           default: asc
+ *         description: Sort order (ascending or descending)
  *     responses:
  *       200:
- *         description: List of sectors
+ *         description: Paginated list of sectors with metadata
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Secteur'
+ *               type: object
+ *               properties:
+ *                 secteurs:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Secteur'
+ *                 pagination:
+ *                   type: object
+ *                   properties:
+ *                     currentPage:
+ *                       type: integer
+ *                     totalPages:
+ *                       type: integer
+ *                     totalItems:
+ *                       type: integer
+ *                     itemsPerPage:
+ *                       type: integer
+ *                     hasNextPage:
+ *                       type: boolean
+ *                     hasPrevPage:
+ *                       type: boolean
+ *       400:
+ *         description: Invalid query parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Unauthorized
  *         content:
@@ -39,26 +97,102 @@ router.use(auth);
  */
 router.get('/', async (req, res) => {
   try {
-    if (req.user.role === 'Admin') {
-      // Admin gets all sectors
-      const secteurs = await Secteur.find().sort({ ID_SECTEUR: 1 });
-      res.json(secteurs);
-    } else {
+    // Extract query parameters with defaults
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search || '';
+    const sortBy = req.query.sortBy || 'ID_SECTEUR';
+    const sortOrder = req.query.sortOrder === 'desc' ? -1 : 1;
+
+    // Validate pagination parameters
+    if (page < 1) {
+      return res.status(400).json({ error: 'Page must be greater than 0' });
+    }
+    if (limit < 1 || limit > 100) {
+      return res.status(400).json({ error: 'Limit must be between 1 and 100' });
+    }
+
+    // Build base filter for role-based access
+    let baseFilter = {};
+    
+    if (req.user.role !== 'Admin') {
       // Non-admin users only get sectors that contain their authorized services
       const authorizedServices = req.user.SERVICES_AUTORISES || [];
       
       if (authorizedServices.length === 0) {
-        return res.json([]); // No authorized services, no sectors
+        // No authorized services, return empty result with pagination structure
+        return res.json({
+          secteurs: [],
+          pagination: {
+            currentPage: page,
+            totalPages: 0,
+            totalItems: 0,
+            itemsPerPage: limit,
+            hasNextPage: false,
+            hasPrevPage: false
+          }
+        });
       }
       
       // Find services to get their sector IDs
       const services = await Service.find({ ID_SERVICE: { $in: authorizedServices } });
       const sectorIds = [...new Set(services.map(s => s.ID_SECTEUR))]; // Remove duplicates
       
-      // Get sectors that contain authorized services
-      const secteurs = await Secteur.find({ ID_SECTEUR: { $in: sectorIds } }).sort({ ID_SECTEUR: 1 });
-      res.json(secteurs);
+      baseFilter = { ID_SECTEUR: { $in: sectorIds } };
     }
+
+    // Build search filter
+    let searchFilter = {};
+    if (search) {
+      // Create regex for case-insensitive search
+      const searchRegex = new RegExp(search, 'i');
+      
+      // Search across all relevant fields
+      searchFilter = {
+        $or: [
+          { LIB_SECTEUR: searchRegex },
+          { ABR_SECTEUR: searchRegex },
+          { ID_SECTEUR: isNaN(search) ? undefined : parseInt(search) }
+        ].filter(condition => condition !== undefined)
+      };
+    }
+
+    // Combine base filter and search filter
+    const combinedFilter = search ? { $and: [baseFilter, searchFilter] } : baseFilter;
+
+    // Calculate skip value for pagination
+    const skip = (page - 1) * limit;
+
+    // Build sort object
+    const sortObject = {};
+    sortObject[sortBy] = sortOrder;
+
+    // Execute queries in parallel for better performance
+    const [secteurs, totalCount] = await Promise.all([
+      Secteur.find(combinedFilter)
+        .sort(sortObject)
+        .skip(skip)
+        .limit(limit),
+      Secteur.countDocuments(combinedFilter)
+    ]);
+
+    // Calculate pagination metadata
+    const totalPages = Math.ceil(totalCount / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    // Return paginated response
+    res.json({
+      secteurs,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalItems: totalCount,
+        itemsPerPage: limit,
+        hasNextPage,
+        hasPrevPage
+      }
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

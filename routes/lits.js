@@ -584,7 +584,7 @@ router.delete('/:id', async (req, res) => {
  * @swagger
  * /lits/all:
  *   get:
- *     summary: Get all beds with optional filters and pagination
+ *     summary: Get all beds with optional filters, pagination, and sorting
  *     tags: [Beds]
  *     security:
  *       - bearerAuth: []
@@ -616,9 +616,22 @@ router.delete('/:id', async (req, res) => {
  *           type: integer
  *           default: 10
  *         description: Number of items per page
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           default: ID_LIT
+ *         description: Field to sort by (ID_LIT, ID_SERVICE, ID_STATUT, LIB_SERVICE, LIB_STATUT, etc.)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *           default: asc
+ *         description: Sort order (ascending or descending)
  *     responses:
  *       200:
- *         description: List of beds
+ *         description: Paginated list of beds with metadata
  *         content:
  *           application/json:
  *             schema:
@@ -626,10 +639,26 @@ router.delete('/:id', async (req, res) => {
  *               properties:
  *                 total:
  *                   type: integer
+ *                   description: Total number of beds matching the filters
  *                 beds:
  *                   type: array
  *                   items:
  *                     $ref: '#/components/schemas/Lit'
+ *                 page:
+ *                   type: integer
+ *                   description: Current page number
+ *                 limit:
+ *                   type: integer
+ *                   description: Number of items per page
+ *                 totalPages:
+ *                   type: integer
+ *                   description: Total number of pages
+ *       400:
+ *         description: Invalid query parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  *       401:
  *         description: Unauthorized
  *         content:
@@ -645,7 +674,22 @@ router.delete('/:id', async (req, res) => {
  */
 router.get('/all', async (req, res) => {
   try {
-    const { secteur, status, search, page = 1, limit = 10 } = req.query;
+    const { secteur, status, search, page = 1, limit = 10, sortBy = 'ID_LIT', sortOrder = 'asc' } = req.query;
+    
+    // Validate pagination parameters
+    const pageNum = Number(page);
+    const limitNum = Number(limit);
+    
+    if (pageNum < 1) {
+      return res.status(400).json({ error: 'Page must be greater than 0' });
+    }
+    if (limitNum < 1 || limitNum > 100) {
+      return res.status(400).json({ error: 'Limit must be between 1 and 100' });
+    }
+    
+    // Build sort object
+    const sortObject = {};
+    sortObject[sortBy] = sortOrder === 'desc' ? -1 : 1;
     
     // Build match conditions
     const matchConditions = {};
@@ -738,9 +782,9 @@ router.get('/all', async (req, res) => {
           ]
         }
       }] : []),
-      { $sort: { ID_LIT: 1 } },
-      { $skip: (Number(page) - 1) * Number(limit) },
-      { $limit: Number(limit) },
+      { $sort: sortObject },
+      { $skip: (pageNum - 1) * limitNum },
+      { $limit: limitNum },
       {
         $project: {
           service_info: 0,
@@ -752,9 +796,9 @@ router.get('/all', async (req, res) => {
     res.json({ 
       total: totalCount, 
       beds,
-      page: Number(page),
-      limit: Number(limit),
-      totalPages: Math.ceil(totalCount / Number(limit))
+      page: pageNum,
+      limit: limitNum,
+      totalPages: Math.ceil(totalCount / limitNum)
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
