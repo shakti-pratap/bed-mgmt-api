@@ -25,8 +25,13 @@ const litSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
     required: true
-  }
-}, {
+  },
+  GENDER: {
+  type: String,
+  default: ''
+},
+}, 
+{
   timestamps: true,
   collection: 'lits'
 });
