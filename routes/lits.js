@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { Lit, HistoriqueStatut, Statut } = require('../models');
-const auth = require('../middleware/auth');
+const { Lit, HistoriqueStatut, Statut } = require("../models");
+const auth = require("../middleware/auth");
 
 // Apply auth middleware to all routes
 router.use(auth);
@@ -37,10 +37,10 @@ router.use(auth);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    let query = { };
-    
+    let query = {};
+
     const lits = await Lit.find(query).sort({ ID_LIT: 1 });
     res.json(lits);
   } catch (error) {
@@ -119,93 +119,107 @@ router.get('/', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/service/:serviceId', async (req, res) => {
+router.get("/service/:serviceId", async (req, res) => {
   try {
-    const { search, status, page = 1, limit = 10 } = req.query;
-    
+    const {
+      search,
+      status,
+      page = 1,
+      limit = 10,
+      sortBy = "ID_LIT",
+      sortOrder = "asc",
+    } = req.query;
+
     // Build match conditions
     const matchConditions = { ID_SERVICE: req.params.serviceId, ACTIF: true };
-    
+
     if (status) {
       matchConditions.ID_STATUT = Number(status);
     }
-    
+
     if (search) {
       // Search in bed ID or status name
-      matchConditions.$or = [
-        { ID_LIT: { $regex: search, $options: 'i' } }
-      ];
+      matchConditions.$or = [{ ID_LIT: { $regex: search, $options: "i" } }];
     }
-    
+    const sortObject = {};
+    sortObject[sortBy] = sortOrder === "desc" ? -1 : 1;
     // First, get total count for pagination
     const total = await Lit.aggregate([
       { $match: matchConditions },
       {
         $lookup: {
-          from: 'statuts',
-          localField: 'ID_STATUT',
-          foreignField: 'ID_STATUT',
-          as: 'statut_info'
-        }
+          from: "statuts",
+          localField: "ID_STATUT",
+          foreignField: "ID_STATUT",
+          as: "statut_info",
+        },
       },
       {
         $addFields: {
-          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
-        }
+          LIB_STATUT: { $arrayElemAt: ["$statut_info.LIB_STATUT", 0] },
+        },
       },
-      ...(search ? [{
-        $match: {
-          $or: [
-            { ID_LIT: { $regex: search, $options: 'i' } },
-            { LIB_STATUT: { $regex: search, $options: 'i' } }
+      ...(search
+        ? [
+            {
+              $match: {
+                $or: [
+                  { ID_LIT: { $regex: search, $options: "i" } },
+                  { LIB_STATUT: { $regex: search, $options: "i" } },
+                ],
+              },
+            },
           ]
-        }
-      }] : []),
-      { $count: 'total' }
+        : []),
+      { $count: "total" },
     ]);
-    
+
     const totalCount = total.length > 0 ? total[0].total : 0;
-    
+
     // Get beds with pagination
     const beds = await Lit.aggregate([
       { $match: matchConditions },
       {
         $lookup: {
-          from: 'statuts',
-          localField: 'ID_STATUT',
-          foreignField: 'ID_STATUT',
-          as: 'statut_info'
-        }
+          from: "statuts",
+          localField: "ID_STATUT",
+          foreignField: "ID_STATUT",
+          as: "statut_info",
+        },
       },
       {
         $addFields: {
-          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
-        }
+          LIB_STATUT: { $arrayElemAt: ["$statut_info.LIB_STATUT", 0] },
+        },
       },
-      ...(search ? [{
-        $match: {
-          $or: [
-            { ID_LIT: { $regex: search, $options: 'i' } },
-            { LIB_STATUT: { $regex: search, $options: 'i' } }
+      ...(search
+        ? [
+            {
+              $match: {
+                $or: [
+                  { ID_LIT: { $regex: search, $options: "i" } },
+                  { LIB_STATUT: { $regex: search, $options: "i" } },
+                ],
+              },
+            },
           ]
-        }
-      }] : []),
-      { $sort: { ID_LIT: 1 } },
+        : []),
+      { $sort: sortObject },
       { $skip: (Number(page) - 1) * Number(limit) },
       { $limit: Number(limit) },
       {
         $project: {
-          statut_info: 0
-        }
-      }
+          statut_info: 0,
+        },
+      },
     ]);
-    
+
     res.json({
       total: totalCount,
       beds,
       page: Number(page),
       limit: Number(limit),
-      totalPages: Math.ceil(totalCount / Number(limit))
+      totalPages: Math.ceil(totalCount / Number(limit)),
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -279,22 +293,24 @@ router.get('/service/:serviceId', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.patch('/bed/:bedId/status', async (req, res) => {
+router.patch("/bed/:bedId/status", async (req, res) => {
   try {
     const { ID_STATUT } = req.body;
-    
+
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
-      return res.status(404).json({ error: 'Bed not found' });
+      return res.status(404).json({ error: "Bed not found" });
     }
 
     // Check if bed is active
     if (!lit.ACTIF) {
-      return res.status(400).json({ error: 'Cannot update status of inactive bed' });
+      return res
+        .status(400)
+        .json({ error: "Cannot update status of inactive bed" });
     }
 
     const previousStatus = lit.ID_STATUT;
-    
+
     // Update bed status and ACTIF based on status
     // Only status 1 (Libre) makes bed active, all others make it inactive
     lit.ID_STATUT = ID_STATUT;
@@ -309,13 +325,13 @@ router.patch('/bed/:bedId/status', async (req, res) => {
       ID_SERVICE: lit.ID_SERVICE,
       ID_STATUT: ID_STATUT,
       AUTEUR: req.user.NOM,
-      STATUT_PRECEDENT: previousStatus
+      STATUT_PRECEDENT: previousStatus,
     });
 
     const updatedLit = await Lit.findOne({ ID_LIT: req.params.bedId });
     res.json(updatedLit);
   } catch (error) {
-    console.error('❌ Error updating bed status:', error);
+    console.error("❌ Error updating bed status:", error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -364,14 +380,14 @@ router.patch('/bed/:bedId/status', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/bed/:bedId/history', async (req, res) => {
+router.get("/bed/:bedId/history", async (req, res) => {
   try {
     // Check if bed exists
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
-      return res.status(404).json({ error: 'Bed not found' });
+      return res.status(404).json({ error: "Bed not found" });
     }
-    
+
     const history = await HistoriqueStatut.getBedHistory(req.params.bedId);
     res.json(history);
   } catch (error) {
@@ -419,15 +435,16 @@ router.get('/bed/:bedId/history', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const { ID_SERVICE } = req.body;
-    if (!ID_SERVICE) {
-      return res.status(400).json({ error: 'ID_SERVICE is required' });
+    const { ID_SERVICE, GENDER } = req.body;
+    console.log("ID SERVICE", req.body);
+    if (ID_SERVICE === "") {
+      return res.status(400).json({ error: "ID_SERVICE is required" });
     }
-    
+
     // Prefix: ID_SERVICE + '-'
-    const prefix = ID_SERVICE + '-';
+    const prefix = ID_SERVICE + "-";
     // Find the highest existing ID_LIT for this service
     const regex = new RegExp(`^${prefix}\\d{2}$`);
     const lastLit = await Lit.find({ ID_LIT: { $regex: regex } })
@@ -439,9 +456,9 @@ router.post('/', async (req, res) => {
       const num = parseInt(lastId.slice(prefix.length), 10);
       nextNum = num + 1;
     }
-    const newId = `${prefix}${String(nextNum).padStart(2, '0')}`;
+    const newId = `${prefix}${String(nextNum).padStart(2, "0")}`;
     // Create bed, ignoring any ID_LIT from client
-    const lit = new Lit({ ...req.body, ID_LIT: newId });
+    const lit = new Lit({ ...req.body, ID_LIT: newId, GENDER, ID_STATUT: 1 });
     const savedLit = await lit.save();
     res.status(201).json(savedLit);
   } catch (error) {
@@ -496,18 +513,18 @@ router.post('/', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     // First check if bed exists and user has access to its service
     const existingLit = await Lit.findOne({ ID_LIT: req.params.id });
     if (!existingLit) {
-      return res.status(404).json({ error: 'Bed not found' });
+      return res.status(404).json({ error: "Bed not found" });
     }
-    
+
     // Prevent updating ID_LIT
     const updateData = { ...req.body };
     delete updateData.ID_LIT;
-    
+
     const updatedLit = await Lit.findOneAndUpdate(
       { ID_LIT: req.params.id },
       updateData,
@@ -563,18 +580,20 @@ router.put('/:id', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     // Only admin can delete beds
-    if (req.user.role !== 'Admin') {
-      return res.status(403).json({ error: 'Admin role required to delete beds' });
+    if (req.user.role !== "Admin") {
+      return res
+        .status(403)
+        .json({ error: "Admin role required to delete beds" });
     }
-    
+
     const deletedLit = await Lit.findOneAndDelete({ ID_LIT: req.params.id });
     if (!deletedLit) {
-      return res.status(404).json({ error: 'Bed not found' });
+      return res.status(404).json({ error: "Bed not found" });
     }
-    res.json({ message: 'Bed deleted' });
+    res.json({ message: "Bed deleted" });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -672,133 +691,149 @@ router.delete('/:id', async (req, res) => {
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/all', async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
-    const { secteur, status, search, page = 1, limit = 10, sortBy = 'ID_LIT', sortOrder = 'asc' } = req.query;
-    
+    const {
+      secteur,
+      status,
+      search,
+      page = 1,
+      limit = 10,
+      sortBy = "ID_LIT",
+      sortOrder = "asc",
+    } = req.query;
+
     // Validate pagination parameters
     const pageNum = Number(page);
     const limitNum = Number(limit);
-    
+
     if (pageNum < 1) {
-      return res.status(400).json({ error: 'Page must be greater than 0' });
+      return res.status(400).json({ error: "Page must be greater than 0" });
     }
     if (limitNum < 1 || limitNum > 100) {
-      return res.status(400).json({ error: 'Limit must be between 1 and 100' });
+      return res.status(400).json({ error: "Limit must be between 1 and 100" });
     }
-    
+
     // Build sort object
     const sortObject = {};
-    sortObject[sortBy] = sortOrder === 'desc' ? -1 : 1;
-    
+    sortObject[sortBy] = sortOrder === "desc" ? -1 : 1;
+
     // Build match conditions
     const matchConditions = {};
     if (status) matchConditions.ID_STATUT = Number(status);
-    
+
     if (secteur) {
       // Find all services in this sector
-      const services = await require('../models').Service.find({ ID_SECTEUR: Number(secteur) });
-      const serviceIds = services.map(s => s.ID_SERVICE);
+      const services = await require("../models").Service.find({
+        ID_SECTEUR: Number(secteur),
+      });
+      const serviceIds = services.map((s) => s.ID_SERVICE);
       matchConditions.ID_SERVICE = { $in: serviceIds };
     }
-    
+
     if (search) {
       // Search in bed ID, service name, or status name
-      matchConditions.$or = [
-        { ID_LIT: { $regex: search, $options: 'i' } }
-      ];
+      matchConditions.$or = [{ ID_LIT: { $regex: search, $options: "i" } }];
     }
-    
+
     // First, get total count for pagination
     const total = await Lit.aggregate([
       { $match: matchConditions },
       {
         $lookup: {
-          from: 'services',
-          localField: 'ID_SERVICE',
-          foreignField: 'ID_SERVICE',
-          as: 'service_info'
-        }
+          from: "services",
+          localField: "ID_SERVICE",
+          foreignField: "ID_SERVICE",
+          as: "service_info",
+        },
       },
       {
         $lookup: {
-          from: 'statuts',
-          localField: 'ID_STATUT',
-          foreignField: 'ID_STATUT',
-          as: 'statut_info'
-        }
+          from: "statuts",
+          localField: "ID_STATUT",
+          foreignField: "ID_STATUT",
+          as: "statut_info",
+        },
       },
       {
         $addFields: {
-          LIB_SERVICE: { $arrayElemAt: ['$service_info.LIB_SERVICE', 0] },
-          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
-        }
+          LIB_SERVICE: { $arrayElemAt: ["$service_info.LIB_SERVICE", 0] },
+          LIB_STATUT: { $arrayElemAt: ["$statut_info.LIB_STATUT", 0] },
+        },
       },
-      ...(search ? [{
-        $match: {
-          $or: [
-            { ID_LIT: { $regex: search, $options: 'i' } },
-            { LIB_SERVICE: { $regex: search, $options: 'i' } },
-            { LIB_STATUT: { $regex: search, $options: 'i' } }
+      ...(search
+        ? [
+            {
+              $match: {
+                $or: [
+                  { ID_LIT: { $regex: search, $options: "i" } },
+                  { LIB_SERVICE: { $regex: search, $options: "i" } },
+                  { LIB_STATUT: { $regex: search, $options: "i" } },
+                ],
+              },
+            },
           ]
-        }
-      }] : []),
-      { $count: 'total' }
+        : []),
+      { $count: "total" },
     ]);
-    
+
     const totalCount = total.length > 0 ? total[0].total : 0;
-    
+
     // Get beds with pagination and search
     const beds = await Lit.aggregate([
       { $match: matchConditions },
       {
         $lookup: {
-          from: 'services',
-          localField: 'ID_SERVICE',
-          foreignField: 'ID_SERVICE',
-          as: 'service_info'
-        }
+          from: "services",
+          localField: "ID_SERVICE",
+          foreignField: "ID_SERVICE",
+          as: "service_info",
+        },
       },
       {
         $lookup: {
-          from: 'statuts',
-          localField: 'ID_STATUT',
-          foreignField: 'ID_STATUT',
-          as: 'statut_info'
-        }
+          from: "statuts",
+          localField: "ID_STATUT",
+          foreignField: "ID_STATUT",
+          as: "statut_info",
+        },
       },
       {
         $addFields: {
-          LIB_SERVICE: { $arrayElemAt: ['$service_info.LIB_SERVICE', 0] },
-          LIB_STATUT: { $arrayElemAt: ['$statut_info.LIB_STATUT', 0] }
-        }
+          LIB_SERVICE: { $arrayElemAt: ["$service_info.LIB_SERVICE", 0] },
+          LIB_STATUT: { $arrayElemAt: ["$statut_info.LIB_STATUT", 0] },
+        },
       },
-      ...(search ? [{
-        $match: {
-          $or: [
-            { ID_LIT: { $regex: search, $options: 'i' } },
-            { LIB_SERVICE: { $regex: search, $options: 'i' } },
-            { LIB_STATUT: { $regex: search, $options: 'i' } }
+      ...(search
+        ? [
+            {
+              $match: {
+                $or: [
+                  { ID_LIT: { $regex: search, $options: "i" } },
+                  { LIB_SERVICE: { $regex: search, $options: "i" } },
+                  { LIB_STATUT: { $regex: search, $options: "i" } },
+                ],
+              },
+            },
           ]
-        }
-      }] : []),
+        : []),
       { $sort: sortObject },
       { $skip: (pageNum - 1) * limitNum },
       { $limit: limitNum },
       {
         $project: {
           service_info: 0,
-          statut_info: 0
-        }
-      }
+          statut_info: 0,
+        },
+      },
     ]);
-    
-    res.json({ 
-      total: totalCount, 
+
+    res.json({
+      total: totalCount,
       beds,
       page: pageNum,
       limit: limitNum,
-      totalPages: Math.ceil(totalCount / limitNum)
+      totalPages: Math.ceil(totalCount / limitNum),
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -901,22 +936,22 @@ router.get('/all', async (req, res) => {
  *                       AUTEUR:
  *                         type: string
  */
-router.get('/history', auth, async (req, res) => {
+router.get("/history", auth, async (req, res) => {
   try {
-    const { 
-      bedId, 
+    const {
+      bedId,
       serviceId,
-      startDate, 
-      endDate, 
-      status, 
+      startDate,
+      endDate,
+      status,
       author,
-      page = 1, 
-      limit = 10 
+      page = 1,
+      limit = 10,
     } = req.query;
 
     // Build query
     const query = {};
-    
+
     if (bedId) {
       query.ID_LIT = bedId;
     }
@@ -924,15 +959,15 @@ router.get('/history', auth, async (req, res) => {
     if (serviceId) {
       query.ID_SERVICE = serviceId;
     }
-    
+
     if (status) {
       query.ID_STATUT = Number(status);
     }
-    
+
     if (author) {
       query.AUTEUR = author;
     }
-    
+
     // Improved date handling
     if (startDate || endDate) {
       query.DATE_HEURE = {};
@@ -953,9 +988,12 @@ router.get('/history', auth, async (req, res) => {
     // Role-based access control for history
     // Admin and Manager can see all history
     // User and Viewer can only see history for their authorized services
-    if (req.user.ROLE === 'User' || req.user.ROLE === 'Viewer') {
+    if (req.user.ROLE === "User" || req.user.ROLE === "Viewer") {
       // Filter by user's authorized services
-      if (req.user.SERVICES_AUTORISES && req.user.SERVICES_AUTORISES.length > 0) {
+      if (
+        req.user.SERVICES_AUTORISES &&
+        req.user.SERVICES_AUTORISES.length > 0
+      ) {
         query.ID_SERVICE = { $in: req.user.SERVICES_AUTORISES };
       } else {
         // If user has no authorized services, return empty result
@@ -964,7 +1002,7 @@ router.get('/history', auth, async (req, res) => {
           history: [],
           page: Number(page),
           limit: Number(limit),
-          totalPages: 0
+          totalPages: 0,
         });
       }
     }
@@ -977,46 +1015,46 @@ router.get('/history', auth, async (req, res) => {
       { $match: query },
       {
         $lookup: {
-          from: 'statuts',
+          from: "statuts",
           let: { statusId: { $toInt: "$ID_STATUT" } },
           pipeline: [
             {
               $match: {
-                $expr: { $eq: ["$ID_STATUT", "$$statusId"] }
-              }
-            }
+                $expr: { $eq: ["$ID_STATUT", "$$statusId"] },
+              },
+            },
           ],
-          as: 'status'
-        }
+          as: "status",
+        },
       },
       {
         $lookup: {
-          from: 'statuts',
+          from: "statuts",
           let: { prevStatusId: { $toInt: "$STATUT_PRECEDENT" } },
           pipeline: [
             {
               $match: {
-                $expr: { $eq: ["$ID_STATUT", "$$prevStatusId"] }
-              }
-            }
+                $expr: { $eq: ["$ID_STATUT", "$$prevStatusId"] },
+              },
+            },
           ],
-          as: 'previousStatus'
-        }
+          as: "previousStatus",
+        },
       },
       {
         $lookup: {
-          from: 'services',
-          localField: 'ID_SERVICE',
-          foreignField: 'ID_SERVICE',
-          as: 'service'
-        }
+          from: "services",
+          localField: "ID_SERVICE",
+          foreignField: "ID_SERVICE",
+          as: "service",
+        },
       },
       {
         $addFields: {
-          status: { $arrayElemAt: ['$status.LIB_STATUT', 0] },
-          previousStatus: { $arrayElemAt: ['$previousStatus.LIB_STATUT', 0] },
-          service: { $arrayElemAt: ['$service.LIB_SERVICE', 0] }
-        }
+          status: { $arrayElemAt: ["$status.LIB_STATUT", 0] },
+          previousStatus: { $arrayElemAt: ["$previousStatus.LIB_STATUT", 0] },
+          service: { $arrayElemAt: ["$service.LIB_SERVICE", 0] },
+        },
       },
       {
         $project: {
@@ -1027,12 +1065,12 @@ router.get('/history', auth, async (req, res) => {
           status: 1,
           previousStatus: 1,
           DATE_HEURE: 1,
-          AUTEUR: 1
-        }
+          AUTEUR: 1,
+        },
       },
       { $sort: { DATE_HEURE: -1 } },
       { $skip: (Number(page) - 1) * Number(limit) },
-      { $limit: Number(limit) }
+      { $limit: Number(limit) },
     ]);
 
     res.json({
@@ -1040,10 +1078,10 @@ router.get('/history', auth, async (req, res) => {
       history,
       page: Number(page),
       limit: Number(limit),
-      totalPages: Math.ceil(total / Number(limit))
+      totalPages: Math.ceil(total / Number(limit)),
     });
   } catch (error) {
-    console.error('Error fetching history:', error);
+    console.error("Error fetching history:", error);
     res.status(500).json({ error: error.message });
   }
 });
