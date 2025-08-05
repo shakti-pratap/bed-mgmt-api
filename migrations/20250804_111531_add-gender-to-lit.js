@@ -1,30 +1,47 @@
-// migrations/20250804_add-gender-to-lit.js
 const mongoose = require('mongoose');
-require('dotenv').config(); // If using .env
 
 module.exports.up = async function () {
-  await mongoose.connect(process.env.MONGODB_URI);
+  const db = mongoose.connection;
 
-  const Lit = mongoose.connection.collection('lits');
+  if (db.readyState !== 1) {
+    throw new Error("Not connected to MongoDB in migration file.");
+  }
 
-  // Update all existing documents: add GENDER field with default ''
+  const Lit = db.collection('lits');
+
+  // Add GENDER and CLEANING_DATE fields if they don't exist
   await Lit.updateMany(
-    { GENDER: { $exists: false } },
-    { $set: { GENDER: '' } }
+    {
+      GENDER: { $exists: false },
+      CLEANING_DATE: { $exists: false }
+    },
+    {
+      $set: {
+        GENDER: '',
+        CLEANING_DATE: null
+      }
+    }
   );
 
-  console.log('Migration complete: GENDER added with default value ""');
-  await mongoose.disconnect();
+  console.log('✅ Migration complete: GENDER and CLEANING_DATE fields added');
 };
 
 module.exports.down = async function () {
-  await mongoose.connect(process.env.MONGO_URI);
+  const db = mongoose.connection;
 
-  const Lit = mongoose.connection.collection('lits');
+  if (db.readyState !== 1) {
+    throw new Error("Not connected to MongoDB in migration file.");
+  }
 
-  // Rollback: remove GENDER field
-  await Lit.updateMany({}, { $unset: { GENDER: "" } });
+  const Lit = db.collection('lits');
 
-  console.log('Rollback complete: GENDER field removed');
-  await mongoose.disconnect();
+  // Remove GENDER and CLEANING_DATE fields from all documents
+  await Lit.updateMany({}, {
+    $unset: {
+      GENDER: "",
+      CLEANING_DATE: ""
+    }
+  });
+
+  console.log('✅ Rollback complete: GENDER and CLEANING_DATE fields removed');
 };
