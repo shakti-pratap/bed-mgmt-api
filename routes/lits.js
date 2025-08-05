@@ -295,7 +295,7 @@ router.get("/service/:serviceId", async (req, res) => {
  */
 router.patch("/bed/:bedId/status", async (req, res) => {
   try {
-    const { ID_STATUT, SUB_ID_STATUT, MAJ_STATUT } = req.body;
+    const { ID_STATUT, SUB_ID_STATUT, MAJ_STATUT, CLEANING_TIME } = req.body;
     console.log("Status update body ", req.body, ID_STATUT);
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
@@ -317,8 +317,10 @@ router.patch("/bed/:bedId/status", async (req, res) => {
     lit.MAJ_STATUT = MAJ_STATUT;
     if (ID_STATUT === 3) {
       lit.SUB_ID_STATUT = SUB_ID_STATUT;
+      lit.CLEANING_DATE = CLEANING_TIME;
     } else {
       lit.SUB_ID_STATUT = null;
+      lit.CLEANING_DATE = null;
     }
     await lit.save();
 
@@ -330,6 +332,7 @@ router.patch("/bed/:bedId/status", async (req, res) => {
       ID_LIT: lit.ID_LIT,
       ID_SERVICE: lit.ID_SERVICE,
       ID_STATUT: ID_STATUT,
+      SUB_ID_STATUT: SUB_ID_STATUT,
       AUTEUR: req.user.NOM,
       STATUT_PRECEDENT: previousStatus,
     });
@@ -708,7 +711,7 @@ router.get("/all", async (req, res) => {
       sortBy = "ID_LIT",
       sortOrder = "asc",
     } = req.query;
-
+    const role = req.user?.role;
     // Validate pagination parameters
     const pageNum = Number(page);
     const limitNum = Number(limit);
@@ -726,7 +729,11 @@ router.get("/all", async (req, res) => {
 
     // Build match conditions
     const matchConditions = {};
-    if (status) matchConditions.ID_STATUT = Number(status);
+    if (role === "Agent d'entretien" || role === "Responsabled'entretien") {
+      matchConditions.ID_STATUT = 3;
+    } else if (status) {
+      matchConditions.ID_STATUT = Number(status);
+    }
 
     if (secteur) {
       // Find all services in this sector
@@ -1011,6 +1018,12 @@ router.get("/history", auth, async (req, res) => {
           totalPages: 0,
         });
       }
+    } else if (
+      req.user.ROLE === "Agent d'entretien" ||
+      req.user.ROLE === "Responsabled'entretien"
+    ) {
+      // Filter to only entries where current or previous status is 3 (À nettoyer)
+      query.$or = [{ ID_STATUT: 3 }, { STATUT_PRECEDENT: 3 }];
     }
     // For Admin and Manager roles, no additional filtering needed - they can see all
 
@@ -1072,6 +1085,7 @@ router.get("/history", auth, async (req, res) => {
           previousStatus: 1,
           DATE_HEURE: 1,
           AUTEUR: 1,
+          SUB_ID_STATUT:1
         },
       },
       { $sort: { DATE_HEURE: -1 } },

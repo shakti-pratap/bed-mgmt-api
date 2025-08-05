@@ -14,6 +14,10 @@ const historiqueStatutSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  SUB_ID_STATUT:{
+   type:Number,
+   default:null
+  },
   ID_STATUT: {
     type: Number,
     required: true
