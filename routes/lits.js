@@ -295,8 +295,8 @@ router.get("/service/:serviceId", async (req, res) => {
  */
 router.patch("/bed/:bedId/status", async (req, res) => {
   try {
-    const { ID_STATUT } = req.body;
-
+    const { ID_STATUT, SUB_ID_STATUT, MAJ_STATUT } = req.body;
+    console.log("Status update body ", req.body, ID_STATUT);
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
       return res.status(404).json({ error: "Bed not found" });
@@ -314,6 +314,12 @@ router.patch("/bed/:bedId/status", async (req, res) => {
     // Update bed status and ACTIF based on status
     // Only status 1 (Libre) makes bed active, all others make it inactive
     lit.ID_STATUT = ID_STATUT;
+    lit.MAJ_STATUT = MAJ_STATUT;
+    if (ID_STATUT === 3) {
+      lit.SUB_ID_STATUT = SUB_ID_STATUT;
+    } else {
+      lit.SUB_ID_STATUT = null;
+    }
     await lit.save();
 
     // Remove: Update the service's available bed count (CAPA_REELLE)

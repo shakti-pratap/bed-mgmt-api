@@ -17,6 +17,11 @@ const litSchema = new mongoose.Schema({
     required: true,
     ref: 'Statut'
   },
+  SUB_ID_STATUT:{
+   type:Number,
+   ref:'Statut',
+   default:null
+  },
   MAJ_STATUT: {
     type: Date,
     default: Date.now

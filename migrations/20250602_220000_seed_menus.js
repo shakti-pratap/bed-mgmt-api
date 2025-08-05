@@ -25,7 +25,7 @@ async function up() {
       path: '/global-view', 
       title: 'Global View', 
       icon: 'LayoutDashboard', 
-      permission: ['Admin', 'User', 'Viewer', 'Manager'], 
+      permission: ['Admin', 'User', 'Viewer', 'Manager',"Agent d'entretien"], 
       sortOrder: 1,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -34,7 +34,7 @@ async function up() {
       path: '/sectorview', 
       title: 'Sectors', 
       icon: 'Factory', 
-      permission: ['Admin', 'User', 'Viewer', 'Manager'], 
+      permission: ['Admin', 'User', 'Viewer', 'Manager',"Agent d'entretien"], 
       sortOrder: 2,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -43,7 +43,7 @@ async function up() {
       path: '/services', 
       title: 'Services', 
       icon: 'Cross', 
-      permission: ['Admin', 'User', 'Viewer', 'Manager'], 
+      permission: ['Admin', 'User', 'Viewer', 'Manager',"Agent d'entretien"], 
       sortOrder: 3,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -52,7 +52,7 @@ async function up() {
       path: '/logs', 
       title: 'History Logs', 
       icon: 'Logs', 
-      permission: ['Admin', 'User', 'Viewer', 'Manager'], 
+      permission: ['Admin', 'User', 'Viewer', 'Manager',"Agent d'entretien"], 
       sortOrder: 4,
       createdAt: new Date(),
       updatedAt: new Date()

@@ -1,30 +1,35 @@
 // migrations/20250804_add-gender-to-lit.js
 const mongoose = require('mongoose');
-require('dotenv').config(); // If using .env
 
 module.exports.up = async function () {
-  await mongoose.connect(process.env.MONGODB_URI);
+  const db = mongoose.connection;
 
-  const Lit = mongoose.connection.collection('lits');
+  if (db.readyState !== 1) {
+    throw new Error("Not connected to MongoDB in migration file.");
+  }
 
-  // Update all existing documents: add GENDER field with default ''
+  const Lit = db.collection('lits');
+
+  // Add GENDER field to all documents that don't have it
   await Lit.updateMany(
     { GENDER: { $exists: false } },
     { $set: { GENDER: '' } }
   );
 
-  console.log('Migration complete: GENDER added with default value ""');
-  await mongoose.disconnect();
+  console.log('✅ Migration complete: GENDER added with default value ""');
 };
 
 module.exports.down = async function () {
-  await mongoose.connect(process.env.MONGO_URI);
+  const db = mongoose.connection;
 
-  const Lit = mongoose.connection.collection('lits');
+  if (db.readyState !== 1) {
+    throw new Error("Not connected to MongoDB in migration file.");
+  }
 
-  // Rollback: remove GENDER field
+  const Lit = db.collection('lits');
+
+  // Remove GENDER field from all documents
   await Lit.updateMany({}, { $unset: { GENDER: "" } });
 
-  console.log('Rollback complete: GENDER field removed');
-  await mongoose.disconnect();
+  console.log('✅ Rollback complete: GENDER field removed');
 };
