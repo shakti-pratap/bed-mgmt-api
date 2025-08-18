@@ -295,7 +295,13 @@ router.get("/service/:serviceId", async (req, res) => {
  */
 router.patch("/bed/:bedId/status", async (req, res) => {
   try {
-    const { ID_STATUT, SUB_ID_STATUT, MAJ_STATUT, CLEANING_TIME } = req.body;
+    const {
+      ID_STATUT,
+      SUB_ID_STATUT,
+      MAJ_STATUT,
+      CLEANING_TIME,
+      MAINTENANCE_TIME,
+    } = req.body;
     console.log("Status update body ", req.body, ID_STATUT);
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
@@ -321,6 +327,12 @@ router.patch("/bed/:bedId/status", async (req, res) => {
     } else {
       lit.SUB_ID_STATUT = null;
       lit.CLEANING_DATE = null;
+    }
+
+    if (ID_STATUT === 4) {
+      lit.MAINTENANCE_DATE = MAINTENANCE_TIME;
+    } else {
+      lit.MAINTENANCE_DATE = null;
     }
     await lit.save();
 
@@ -731,6 +743,8 @@ router.get("/all", async (req, res) => {
     const matchConditions = {};
     if (role === "Agent d'entretien" || role === "Responsabled'entretien") {
       matchConditions.ID_STATUT = 3;
+    } else if (role === "Agent technique" || role === "Responsable technique") {
+      matchConditions.ID_STATUT = 4;
     } else if (status) {
       matchConditions.ID_STATUT = Number(status);
     }
@@ -1025,6 +1039,13 @@ router.get("/history", auth, async (req, res) => {
       // Filter to only entries where current or previous status is 3 (À nettoyer)
       query.$or = [{ ID_STATUT: 3 }, { STATUT_PRECEDENT: 3 }];
     }
+    else if (
+      req.user.ROLE === "Agent technique" ||
+      req.user.ROLE === "Responsable technique"
+    ) {
+      // Filter to only entries where current or previous status is 4 (À entretenir)
+      query.$or = [{ ID_STATUT: 4 }, { STATUT_PRECEDENT: 4 }];
+    }
     // For Admin and Manager roles, no additional filtering needed - they can see all
 
     // Get total count with role-based filtering
@@ -1085,7 +1106,7 @@ router.get("/history", auth, async (req, res) => {
           previousStatus: 1,
           DATE_HEURE: 1,
           AUTEUR: 1,
-          SUB_ID_STATUT:1
+          SUB_ID_STATUT: 1,
         },
       },
       { $sort: { DATE_HEURE: -1 } },
