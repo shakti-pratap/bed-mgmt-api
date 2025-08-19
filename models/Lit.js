@@ -31,6 +31,10 @@ const litSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    MAINTENANCE_DATE: {
+      type: Date,
+      default: null,
+    },
     ACTIF: {
       type: Boolean,
       default: true,

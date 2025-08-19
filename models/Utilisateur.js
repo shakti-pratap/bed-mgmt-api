@@ -23,6 +23,8 @@ const utilisateurSchema = new mongoose.Schema(
         "Manager",
         "Agent d'entretien",
         "Responsabled'entretien",
+        "Agent technique",
+        "Responsable technique",
       ],
       default: "User",
     },
