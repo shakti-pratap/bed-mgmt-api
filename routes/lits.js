@@ -546,6 +546,11 @@ router.put("/:id", async (req, res) => {
     const updateData = { ...req.body };
     delete updateData.ID_LIT;
 
+    // If GENDER is 'INDIFFERENT', set it to empty string
+    if (updateData.GENDER === "INDIFFERENT") {
+      updateData.GENDER = "";
+    }
+
     const updatedLit = await Lit.findOneAndUpdate(
       { ID_LIT: req.params.id },
       updateData,
