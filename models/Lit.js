@@ -35,6 +35,10 @@ const litSchema = new mongoose.Schema(
       type: Date,
       default: null,
     },
+    RESERVED_DATE: {
+      type: Date,
+      default: null,
+    },
     ACTIF: {
       type: Boolean,
       default: true,

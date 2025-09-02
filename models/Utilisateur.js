@@ -21,6 +21,7 @@ const utilisateurSchema = new mongoose.Schema(
         "User",
         "Viewer",
         "Manager",
+        "Medecin",
         "Agent d'entretien",
         "Responsabled'entretien",
         "Agent technique",
