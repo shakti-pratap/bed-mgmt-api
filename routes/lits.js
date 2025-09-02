@@ -301,6 +301,7 @@ router.patch("/bed/:bedId/status", async (req, res) => {
       MAJ_STATUT,
       CLEANING_TIME,
       MAINTENANCE_TIME,
+      RESERVED_DATE,
     } = req.body;
     console.log("Status update body ", req.body, ID_STATUT);
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
@@ -333,6 +334,12 @@ router.patch("/bed/:bedId/status", async (req, res) => {
       lit.MAINTENANCE_DATE = MAINTENANCE_TIME;
     } else {
       lit.MAINTENANCE_DATE = null;
+    }
+
+    if (ID_STATUT === 6) {
+      lit.RESERVED_DATE = RESERVED_DATE;
+    } else {
+      lit.RESERVED_DATE = null;
     }
     await lit.save();
 
@@ -1043,8 +1050,7 @@ router.get("/history", auth, async (req, res) => {
     ) {
       // Filter to only entries where current or previous status is 3 (À nettoyer)
       query.$or = [{ ID_STATUT: 3 }, { STATUT_PRECEDENT: 3 }];
-    }
-    else if (
+    } else if (
       req.user.ROLE === "Agent technique" ||
       req.user.ROLE === "Responsable technique"
     ) {
