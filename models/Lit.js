@@ -48,6 +48,11 @@ const litSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    isEmergency: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
   },
   {
     timestamps: true,
@@ -59,6 +64,7 @@ const litSchema = new mongoose.Schema(
 litSchema.index({ ID_SERVICE: 1 });
 litSchema.index({ ID_STATUT: 1 });
 litSchema.index({ ACTIF: 1 });
+litSchema.index({ isEmergency: 1 });
 litSchema.index({ MAJ_STATUT: -1 }); // Most recent first
 
 // Compound indexes for common queries

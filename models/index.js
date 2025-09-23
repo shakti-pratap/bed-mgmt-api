@@ -6,6 +6,7 @@ const Lit = require('./Lit');
 const Utilisateur = require('./Utilisateur');
 const HistoriqueStatut = require('./HistoriqueStatut');
 const Migration = require('./Migration');
+const Task = require('./Task');
 
 module.exports = {
   Secteur,
@@ -14,5 +15,6 @@ module.exports = {
   Lit,
   Utilisateur,
   HistoriqueStatut,
-  Migration
+  Migration,
+  Task
 }; 

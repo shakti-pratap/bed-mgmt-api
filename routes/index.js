@@ -10,6 +10,7 @@ const dashboardRoutes = require('./dashboard');
 const docsRoutes = require('./docs');
 const utilisateursRoutes = require('./utilisateurs');
 const menusRoutes = require('./menus');
+const tasksRoutes = require('./tasks');
 
 // Root route redirects to documentation
 router.get('/', (req, res) => {
@@ -25,5 +26,6 @@ router.use('/dashboard', dashboardRoutes);
 router.use('/docs', docsRoutes);
 router.use('/utilisateurs', utilisateursRoutes);
 router.use('/menus', menusRoutes);
+router.use('/tasks', tasksRoutes);
 
 module.exports = router; 

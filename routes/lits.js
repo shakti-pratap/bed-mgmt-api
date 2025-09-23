@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Lit, HistoriqueStatut, Statut } = require("../models");
+const { Lit, HistoriqueStatut, Statut, Task, Service } = require("../models");
 const auth = require("../middleware/auth");
 
 // Apply auth middleware to all routes
@@ -303,7 +303,6 @@ router.patch("/bed/:bedId/status", async (req, res) => {
       MAINTENANCE_TIME,
       RESERVED_DATE,
     } = req.body;
-    console.log("Status update body ", req.body, ID_STATUT);
     const lit = await Lit.findOne({ ID_LIT: req.params.bedId });
     if (!lit) {
       return res.status(404).json({ error: "Bed not found" });
@@ -317,6 +316,13 @@ router.patch("/bed/:bedId/status", async (req, res) => {
     }
 
     const previousStatus = lit.ID_STATUT;
+
+    // Check if changing FROM Reserved status with emergency flag
+    if (previousStatus === 6 && lit.isEmergency === true && ID_STATUT !== 6) {
+      // When changing from Reserved status with emergency flag, clear emergency
+      lit.isEmergency = false;
+      console.log(`🔄 Emergency cleared for bed ${lit.ID_LIT} - Status changing from Reserved to ${ID_STATUT}`);
+    }
 
     // Update bed status and ACTIF based on status
     // Only status 1 (Libre) makes bed active, all others make it inactive
@@ -355,6 +361,43 @@ router.patch("/bed/:bedId/status", async (req, res) => {
       AUTEUR: req.user.NOM,
       STATUT_PRECEDENT: previousStatus,
     });
+
+    // Create task for cleaning (status 3) or maintenance (status 4)
+    if (ID_STATUT === 3 || ID_STATUT === 4) {
+      try {
+        // Get service information for task
+        const service = await Service.findOne({ ID_SERVICE: lit.ID_SERVICE });
+        const serviceName = service ? service.LIB_SERVICE : lit.ID_SERVICE;
+        
+        const taskData = {
+          bedId: lit.ID_LIT,
+          serviceName: serviceName,
+          taskType: ID_STATUT,
+          creationDate: new Date(),
+          gender: lit.GENDER || "",
+          isUrgent: false,
+          isDone: false
+        };
+
+        // Add specific fields based on task type
+        if (ID_STATUT === 3) {
+          // Cleaning task
+          taskData.taskCategory = SUB_ID_STATUT || null;
+          taskData.taskCompletionDateTime = CLEANING_TIME;
+        }
+
+        if (ID_STATUT === 4) {
+          // Cleaning task
+          taskData.taskCompletionDateTime = MAINTENANCE_TIME;
+        }
+
+        await Task.create(taskData);
+        console.log(`✅ Task created for bed ${lit.ID_LIT} with status ${ID_STATUT}`);
+      } catch (taskError) {
+        console.error("❌ Error creating task:", taskError);
+        // Don't fail the main operation if task creation fails
+      }
+    }
 
     const updatedLit = await Lit.findOne({ ID_LIT: req.params.bedId });
     res.json(updatedLit);
@@ -558,11 +601,51 @@ router.put("/:id", async (req, res) => {
       updateData.GENDER = "";
     }
 
+    // Handle isEmergency field logic
+    if (updateData.hasOwnProperty('isEmergency')) {
+      if (updateData.isEmergency === true) {
+        // When setting emergency to true, mark bed as Reserved (status 6)
+        updateData.ID_STATUT = 6;
+        updateData.MAJ_STATUT = new Date();
+        console.log(`🚨 Emergency activated for bed ${req.params.id} - Status set to Reserved`);
+      } else if (updateData.isEmergency === false) {
+        // When setting emergency to false, check if it was previously true
+        if (existingLit.isEmergency === true) {
+          // If previous value was true, undo emergency: set to Libre (status 1)
+          updateData.ID_STATUT = 1;
+          updateData.MAJ_STATUT = new Date();
+          // Clear any emergency-related dates
+          updateData.RESERVED_DATE = null;
+          console.log(`✅ Emergency deactivated for bed ${req.params.id} - Status set to Libre`);
+        }
+        // If previous value was already false, no status change needed
+      }
+    }
+
     const updatedLit = await Lit.findOneAndUpdate(
       { ID_LIT: req.params.id },
       updateData,
       { new: true, runValidators: true }
     );
+
+    // If status was changed due to emergency logic, create history record
+    if (updateData.hasOwnProperty('isEmergency') && updateData.hasOwnProperty('ID_STATUT')) {
+      try {
+        await HistoriqueStatut.createHistory({
+          ID_LIT: existingLit.ID_LIT,
+          ID_SERVICE: existingLit.ID_SERVICE,
+          ID_STATUT: updateData.ID_STATUT,
+          SUB_ID_STATUT: null,
+          AUTEUR: req.user.NOM,
+          STATUT_PRECEDENT: existingLit.ID_STATUT,
+        });
+        console.log(`📝 History record created for emergency status change on bed ${req.params.id}`);
+      } catch (historyError) {
+        console.error("❌ Error creating history record:", historyError);
+        // Don't fail the main operation if history creation fails
+      }
+    }
+
     res.json(updatedLit);
   } catch (error) {
     res.status(400).json({ error: error.message });

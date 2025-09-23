@@ -328,6 +328,220 @@ router.get('/secteur/:secteurId', async (req, res) => {
 
 /**
  * @swagger
+ * /services/secteur/{secteurId}/paginated:
+ *   get:
+ *     summary: Get services by sector with pagination, search, and sorting
+ *     description: Retrieve a paginated, searchable, and sortable list of services belonging to a specific sector with capacity calculations
+ *     tags: [Services]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: secteurId
+ *         required: true
+ *         schema:
+ *           type: number
+ *         description: Sector identifier
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *           maximum: 100
+ *           default: 10
+ *         description: Number of items per page
+ *       - in: query
+ *         name: search
+ *         schema:
+ *           type: string
+ *         description: Search term to filter services across all fields
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           default: ID_SERVICE
+ *         description: Field to sort by (any service field including calculated capacities)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *           default: asc
+ *         description: Sort order (ascending or descending)
+ *     responses:
+ *       200:
+ *         description: Paginated list of services in the sector with metadata
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 services:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       ID_SERVICE:
+ *                         type: string
+ *                         description: Service identifier
+ *                       LIB_SERVICE:
+ *                         type: string
+ *                         description: Service name
+ *                       ID_SECTEUR:
+ *                         type: number
+ *                         description: Sector identifier
+ *                       ROR:
+ *                         type: boolean
+ *                         description: ROR status
+ *                       CAPA_ARCHI:
+ *                         type: number
+ *                         description: Total beds in the service (calculated dynamically)
+ *                       CAPA_REELLE:
+ *                         type: number
+ *                         description: Active beds in the service (calculated dynamically)
+ *                 pagination:
+ *                   type: object
+ *                   properties:
+ *                     currentPage:
+ *                       type: integer
+ *                     totalPages:
+ *                       type: integer
+ *                     totalItems:
+ *                       type: integer
+ *                     itemsPerPage:
+ *                       type: integer
+ *                     hasNextPage:
+ *                       type: boolean
+ *                     hasPrevPage:
+ *                       type: boolean
+ *       400:
+ *         description: Invalid query parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       401:
+ *         description: Unauthorized
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
+router.get('/secteur/:secteurId/paginated', async (req, res) => {
+  try {
+    const { secteurId } = req.params;
+    
+    // Extract query parameters with defaults
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const search = req.query.search;
+    const sortBy = req.query.sortBy || 'ID_SERVICE';
+    const sortOrder = req.query.sortOrder === 'desc' ? -1 : 1;
+
+    // Validate pagination parameters
+    if (page < 1) {
+      return res.status(400).json({ error: 'Page must be greater than 0' });
+    }
+    if (limit < 1 || limit > 100) {
+      return res.status(400).json({ error: 'Limit must be between 1 and 100' });
+    }
+
+    // Build search filter with sector constraint
+    let searchFilter = { ID_SECTEUR: parseInt(secteurId) };
+    if (search) {
+      // Create regex for case-insensitive search
+      const searchRegex = new RegExp(search, 'i');
+      
+      // Search across all relevant fields while maintaining sector filter
+      searchFilter = {
+        ID_SECTEUR: parseInt(secteurId),
+        $or: [
+          { ID_SERVICE: searchRegex },
+          { LIB_SERVICE: searchRegex }
+        ]
+      };
+    }
+
+    // Calculate skip value for pagination
+    const skip = (page - 1) * limit;
+
+    // Execute count query for pagination
+    const totalCount = await Service.countDocuments(searchFilter);
+
+    // Build sort object - handle capacity fields specially
+    const sortObject = {};
+    if (sortBy === 'CAPA_ARCHI' || sortBy === 'CAPA_REELLE') {
+      // For capacity fields, we'll sort after calculating capacities
+      sortObject['ID_SERVICE'] = 1; // Default sort for database query
+    } else {
+      sortObject[sortBy] = sortOrder;
+    }
+
+    // Get services from database
+    const services = await Service.find(searchFilter)
+      .sort(sortObject)
+      .skip(skip)
+      .limit(limit);
+
+    // Calculate capacities for all services
+    const Lit = require('../models').Lit;
+    const servicesWithCapacity = await Promise.all(services.map(async (service) => {
+      const beds = await Lit.find({ ID_SERVICE: service.ID_SERVICE });
+      return {
+        ...service.toObject(),
+        CAPA_ARCHI: beds.filter(b => b.ACTIF === true).length,
+        CAPA_REELLE: beds.filter(b => b.ID_STATUT === 1 && b.ACTIF === true).length
+      };
+    }));
+
+    // Handle sorting for capacity fields
+    let finalServices = servicesWithCapacity;
+    if (sortBy === 'CAPA_ARCHI' || sortBy === 'CAPA_REELLE') {
+      finalServices = servicesWithCapacity.sort((a, b) => {
+        const comparison = sortOrder === 1 ? 
+          a[sortBy] - b[sortBy] : 
+          b[sortBy] - a[sortBy];
+        return comparison;
+      });
+    }
+
+    // Calculate pagination metadata
+    const totalPages = Math.ceil(totalCount / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    // Return paginated response
+    res.json({
+      services: finalServices,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalItems: totalCount,
+        itemsPerPage: limit,
+        hasNextPage,
+        hasPrevPage
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+/**
+ * @swagger
  * /services:
  *   post:
  *     summary: Create a new service
