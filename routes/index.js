@@ -11,6 +11,7 @@ const docsRoutes = require('./docs');
 const utilisateursRoutes = require('./utilisateurs');
 const menusRoutes = require('./menus');
 const tasksRoutes = require('./tasks');
+const settingsRoutes = require('./settings');
 
 // Root route redirects to documentation
 router.get('/', (req, res) => {
@@ -27,5 +28,6 @@ router.use('/docs', docsRoutes);
 router.use('/utilisateurs', utilisateursRoutes);
 router.use('/menus', menusRoutes);
 router.use('/tasks', tasksRoutes);
+router.use('/settings', settingsRoutes);
 
 module.exports = router; 
